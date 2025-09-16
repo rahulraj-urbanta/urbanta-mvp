@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission Test</title>
+</head>
+<body>
+    <h1>Form Submission Test</h1>
+    <button onclick="testFormSubmission()">Test Customer Form Submission</button>
+    <div id="result"></div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        async function testFormSubmission() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing form submission...';
+            
+            try {
+                console.log('Testing form submission...');
+                
+                // Simulate the exact data structure from the form
+                const customerData = {
+                    cust_name: 'Test User',
+                    cust_phone: '9876543210',
+                    cust_email: 'test@example.com',
+                    cust_city: 'Mumbai',
+                    cust_service: 'Plumbing',
+                    cust_specific_service: 'Pipe Repair',
+                    cust_specific_other: '',
+                    cust_budget: '5000-10000',
+                    cust_timeline: 'Within a week',
+                    cust_visit: '2025-01-15',
+                    cust_description: 'Test submission from form test'
+                };
+                
+                console.log('Submitting data:', customerData);
+                const success = await submitCustomerToSupabase(customerData);
+                console.log('Submission result:', success);
+                
+                if (success) {
+                    resultDiv.innerHTML = '✅ Form submission successful!';
+                } else {
+                    resultDiv.innerHTML = '❌ Form submission failed';
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                resultDiv.innerHTML = '❌ Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

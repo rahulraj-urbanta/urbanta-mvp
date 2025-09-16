@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urbanta v0.4.10 - Terms of Service</title>
+  <meta name="description" content="Read Urbanta’s terms of service covering usage, responsibilities, and limitations.">
+  <link rel="canonical" href="https://urbanta.com/terms">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+          <div>
+            <a href="index.html" class="brand-name">Urbanta</a>
+            <div class="brand-tag">Building trust, one project at a time</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <div class="user-toggle">
+            <button class="toggle-btn" data-view="customer">Customer</button>
+            <button class="toggle-btn" data-view="home">
+              <span class="home-icon">⌂</span>
+            </button>
+            <button class="toggle-btn" data-view="contractor">Professionals</button>
+          </div>
+          <div class="header-right">
+            <a href="support.html" class="btn secondary header-btn">Support</a>
+            <label class="switch" title="Toggle light mode">
+              <input type="checkbox" id="themeSwitch" />
+              <span class="knob"></span>
+            </label>
+            <span class="switch-label">Light mode</span>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <h3>Menu</h3>
+        <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="customer.html" class="mobile-menu-link">For Customers</a>
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="registration.html" class="mobile-menu-link">For Professionals</a>
+        <a href="support.html" class="mobile-menu-link">Support</a>
+        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div class="container" style="padding-top: var(--space-xl); padding-bottom: var(--space-xl);">
+      <div class="card">
+        <div class="card-head">
+          <h1 class="h1">Terms of Service</h1>
+        </div>
+        <div class="card-body">
+          <p class="p">Last updated: September 2025</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Acceptance of Terms</h2>
+          <p class="p">By accessing and using Urbanta, you accept and agree to be bound by the terms and provision of this agreement.</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Use License</h2>
+          <p class="p">Permission is granted to temporarily use Urbanta for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Disclaimer</h2>
+          <p class="p">The materials on Urbanta are provided on an 'as is' basis. Urbanta makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Limitations</h2>
+          <p class="p">In no event shall Urbanta or its suppliers be liable for any damages arising out of the use or inability to use the materials on Urbanta.</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Accuracy of Materials</h2>
+          <p class="p">The materials appearing on Urbanta could include technical, typographical, or photographic errors. Urbanta does not warrant that any of the materials on its website are accurate, complete, or current.</p>
+          
+          <h2 class="h2" style="margin-top: var(--space-xl);">Contact Information</h2>
+          <p class="p">If you have any questions about these Terms of Service, please contact us at legal@urbanta.com</p>
+          
+          <div style="margin-top: var(--space-xl);">
+            <a href="index.html" class="btn primary">Back to Urbanta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-name">Urbanta</div>
+          <p class="footer-tagline">Building trust in construction</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Urbanta. All rights reserved. | v0.4.10</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      
+      function applyThemeFromStorage(){
+        const saved = localStorage.getItem("urbanta_theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
+        const sw = document.getElementById("themeSwitch");
+        if(sw){ sw.checked = (saved === "light"); }
+      }
+      function setTheme(mode){
+        document.documentElement.setAttribute("data-theme", mode);
+        localStorage.setItem("urbanta_theme", mode);
+        const sw = document.getElementById("themeSwitch");
+        if(sw){ sw.checked = (mode === "light"); }
+      }
+      
+      applyThemeFromStorage();
+      const sw = document.getElementById("themeSwitch");
+      if(sw){ sw.addEventListener("change", (e)=> setTheme(e.target.checked ? "light" : "dark")); }
+    });
+  </script>
+  
+  <script>
+    // Navigation functionality for toggle buttons
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mobile Menu Functionality
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      
+      if (hamburger && mobileMenu) {
+        // Open mobile menu
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.add('active');
+          document.body.classList.add('menu-open');
+        });
+        
+        // Close mobile menu
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+        
+        // Close menu on scroll
+        window.addEventListener('scroll', function() {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      }
+
+      // User Toggle Functionality
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent any default behavior
+          
+          // Remove active class from all buttons
+          toggleButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the view type
+          const viewType = this.getAttribute('data-view');
+          
+          // Navigate to appropriate page
+          if (viewType === 'customer') {
+            window.location.href = 'customer.html';
+          } else if (viewType === 'contractor') {
+            window.location.href = 'registration.html';
+          } else if (viewType === 'home') {
+            window.location.href = 'index.html';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks – Urbanta</title>
+  <meta name="description" content="Thanks for contacting Urbanta. We’ll be in touch shortly.">
+  <link rel="canonical" href="https://urbanta.com/thank-you">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .thank-wrap { min-height: 60vh; display:flex; align-items:center; justify-content:center; text-align:center; }
+    .thank-card { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 24px; max-width: 640px; }
+    .thank-title { font-family: Poppins, Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size: 28px; font-weight: 800; color: var(--accent-text); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+          <div>
+            <div class="brand-name"><a href="index.html" style="text-decoration: none; color: inherit;">Urbanta</a></div>
+            <div class="brand-tag">Building trust, one project at a time</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <label class="switch" title="Toggle light mode">
+            <input type="checkbox" id="themeSwitch" />
+            <span class="knob"></span>
+          </label>
+          <span class="switch-label">Light mode</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container thank-wrap">
+      <div class="thank-card">
+        <div class="thank-title" id="title">Thank you!</div>
+        <p class="p" id="desc" style="margin-top:8px;">
+          We've received your details. Our team will reach out shortly on WhatsApp/phone.
+        </p>
+        <div style="margin-top: 16px;">
+          <a href="index.html" class="btn primary">Back to Urbanta</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get("role");
+    const type = params.get("type");
+    const title = document.getElementById("title");
+    const desc = document.getElementById("desc");
+    
+    if(type === "callback"){
+      title.textContent = "Thanks for your callback request!";
+      desc.textContent = "We've received your details. Our team will call you back within 24 hours.";
+    } else if(role === "contractor"){
+      title.textContent = "Thanks for joining as a Contractor";
+      desc.textContent = "We've received your details. We'll verify your profile and reach out on WhatsApp. Please send your Aadhaar photo, a selfie, and 2–3 recent project photos on WhatsApp.";
+    } else if(role === "supplier"){
+      title.textContent = "Thanks for joining as a Supplier";
+      desc.textContent = "We've received your details. We'll review your listing and contact you on WhatsApp. Please send your Aadhaar photo, GSTIN/PAN document, and price card/catalog on WhatsApp.";
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      applyThemeFromStorage();
+      const themeBtn = document.getElementById("themeToggle");
+      themeBtn && themeBtn.addEventListener("click", toggleTheme);
+    });
+  </script>
+
+
+<script>
+  (function(){
+    function applyThemeFromStorage(){
+      const saved = localStorage.getItem("urbanta_theme") || "light";
+      document.documentElement.setAttribute("data-theme", saved);
+      const sw = document.getElementById("themeSwitch");
+      if(sw){ sw.checked = (saved === "light"); }
+    }
+    function setTheme(mode){
+      document.documentElement.setAttribute("data-theme", mode);
+      localStorage.setItem("urbanta_theme", mode);
+      const sw = document.getElementById("themeSwitch");
+      if(sw){ sw.checked = (mode === "light"); }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      applyThemeFromStorage();
+      const sw = document.getElementById("themeSwitch");
+      if(sw){ sw.addEventListener("change", (e)=> setTheme(e.target.checked ? "light" : "dark")); }
+    });
+  })();
+</script>
+
+</body>
+</html>

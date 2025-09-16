@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Urbanta v0.4.10 - Customer Registration</title>
+  <meta name="description" content="Get free quotes from verified contractors. Compare top bids, pay by milestones, and enjoy warranty-backed quality.">
+  <link rel="canonical" href="https://urbanta.com/customer">
+  <meta name="theme-color" content="#0f1115">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Urbanta">
+  <meta property="og:title" content="Urbanta – Get Free Quotes from Verified Contractors">
+  <meta property="og:description" content="Compare top 3 bids, milestone-only payments, and on-time completion.">
+  <meta property="og:url" content="https://urbanta.com/customer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Urbanta – Get Free Quotes from Verified Contractors">
+  <meta name="twitter:description" content="Compare top 3 bids, milestone-only payments, and on-time completion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating Table of Contents -->
+  <nav class="floating-toc" id="floatingToc">
+    <div class="toc-header">
+      <h3>Quick Jump</h3>
+      <button class="toc-toggle" id="tocToggle">−</button>
+    </div>
+    <ul class="toc-list" id="tocList">
+      <li><a href="#launch-offer" class="toc-link">Launch Offer</a></li>
+      <li><a href="#trust" class="toc-link">Why Choose Urbanta</a></li>
+      <li><a href="#how-it-works" class="toc-link">How It Works?</a></li>
+      <li><a href="#small-jobs" class="toc-link">Quick Fixes & Small Jobs</a></li>
+      <li><a href="#request" class="toc-link">Request a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+          <button id="backBtn" class="back-btn hidden" aria-label="Go back">←</button>
+          <div>
+            <a href="index.html" class="brand-name">Urbanta</a>
+            <div class="brand-tag">Building trust, one project at a time</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <div class="user-toggle">
+            <button class="toggle-btn active" data-view="customer">Customer</button>
+            <button class="toggle-btn" data-view="home">
+              <span class="home-icon">⌂</span>
+            </button>
+            <button class="toggle-btn" data-view="contractor">Professionals</button>
+          </div>
+          <div class="header-right">
+            <a href="support.html" class="btn secondary header-btn">Support</a>
+            <label class="switch" title="Toggle light mode">
+              <input type="checkbox" id="themeSwitch" />
+              <span class="knob"></span>
+            </label>
+            <span class="switch-label">Light mode</span>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <h3>Menu</h3>
+        <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="#request" class="mobile-menu-link">Get Quote</a>
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="registration.html" class="mobile-menu-link">For Professionals</a>
+        <a href="support.html" class="mobile-menu-link">Support</a>
+        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="container">
+      <!-- Customer Hero Section -->
+      <section id="hero" class="hero" style="padding: var(--space-xl) 0;">
+        <div class="hero-content">
+          <h1 class="h1">Get Your Project Done Right</h1>
+          <p class="p">Connect with verified contractors and suppliers. Quality work, milestone payments, and warranty protection.</p>
+          
+          <div class="hero-stats" style="margin-top: var(--space-lg);">
+            <div class="stat">
+              <span class="stat-number">24hrs</span>
+              <span class="stat-label">Quote Delivery</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Top Bids</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Warranty</span>
+            </div>
+          </div>
+          
+          <div style="margin-top: var(--space-lg);">
+            <a href="#request" class="btn primary hero-btn">Get Free Quote + <span style="color: #10b981; font-weight: 900;">40% Off*</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Launch Offer Banner -->
+      <div id="launch-offer" class="promo-banner" style="margin-bottom: 2rem;">
+        <span class="pilot-badge">LAUNCH OFFER</span> 🎉 First 10,000 customers get up to 40% off*
+        <span class="small">Quality contractors, milestone payments, and warranty protection. Limited time offer!</span>
+        <div class="small" style="margin-top: 8px; font-size: 0.75rem; opacity: 0.8;">*Maximum discount of ₹5,000 per project</div>
+        <div class="urgency-text">⚡ <strong>LIMITED TIME!</strong> Get your project started with trusted contractors!</div>
+      </div>
+
+      <!-- Trust Section -->
+      <section id="trust" class="trust">
+        <div class="container">
+          <h2>Why choose Urbanta?</h2>
+          <p class="trust-intro">We connect you with verified contractors and suppliers, ensuring quality work with milestone-based payments.</p>
+          <div class="trust-cards">
+            <div class="trust-card">
+              <h3>📊 Top 3 bids, clearly compared</h3>
+              <p>We share the best three with price, timeline, and warranty details.</p>
+            </div>
+            <div class="trust-card">
+              <h3>💰 Lowest Money Guarantee</h3>
+              <p>Find a comparable lower quote? We match or beat it as per policy.</p>
+            </div>
+            <div class="trust-card">
+              <h3>🛡️ Milestone-only payments</h3>
+              <p>No advance. You release funds only after milestone approval.</p>
+            </div>
+            <div class="trust-card">
+              <h3>⏰ On-time completion commitment</h3>
+              <p>SLAs with escalation support to keep your project on schedule.</p>
+            </div>
+            <div class="trust-card">
+              <h3>📱 Frequent project updates</h3>
+              <p>Photos, QA notes, and progress tracking at every stage.</p>
+            </div>
+            <div class="trust-card">
+              <h3>🧑‍💼 Civil engineer QA & warranty</h3>
+              <p>Site checks at critical stages and a completion certificate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="how-it-works hidden-section">
+        <div class="container">
+          <h2 class="section-title">How it works?</h2>
+          
+          <h3 class="sub-title text-center">For Small Jobs (Repairs, Drilling, Tap Fixes, etc.) 
+            <a href="#small-jobs" class="section-link-icon" title="View Quick Fixes & Small Jobs">🔧</a>
+          </h3>
+          <div class="steps steps-small">
+            <div class="step">
+              <div class="step-badge">1</div>
+              <h3>🔧 Tell us your project</h3>
+              <p>Share details of your small job (drilling, tap fixing, switch replacement, etc.).</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">2</div>
+              <h3>📩 We confirm & quote <span class="pill">24 hrs</span></h3>
+              <p>Urbanta verifies requirements and provides a fixed price.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">3</div>
+              <h3>👷 Pro visits <span class="pill">24 hrs</span></h3>
+              <p>A vetted expert completes the job within 24 hrs of confirmation.</p>
+            </div>
+          </div>
+
+          <h3 class="sub-title text-center">For Bigger Jobs (Renovation, Masonry, Plumbing, etc.)</h3>
+          <div class="steps steps-big steps-compact">
+            <div class="step">
+              <div class="step-badge">1</div>
+              <h3>📝 Tell us your project</h3>
+              <p>Share scope, budget & timeline in minutes.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">2</div>
+              <h3>🏗️ Expert site visit <span class="pill">24 hrs</span></h3>
+              <p>Civil engineer captures exact requirements.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">3</div>
+              <h3>⚙️ We work in background</h3>
+              <p>Contractors validated & suppliers aligned.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">4</div>
+              <h3>📑 Final quote <span class="pill">48 hrs</span></h3>
+              <p>Receive 3 transparent options with agreements.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+              <div class="step-badge">5</div>
+              <h3>🚀 Work begins</h3>
+              <p>Contractor starts work as per the agreed date.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="small-jobs" class="small-jobs-section">
+        <h2 class="section-title">Quick Fixes & Small Jobs</h2>
+        <p class="section-subtitle">Get professional help for everyday home repairs - <span class="price-highlight">starting from just ₹100!</span></p>
+        
+        <div class="small-jobs-grid">
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🚿</div>
+              <h3>Plumbing</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Tap / faucet install & replacement</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Tap / faucet install & replacement" data-category="Plumbing">₹299</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Shower head install & replacement</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Shower head install & replacement" data-category="Plumbing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Minor leak fix (sink / pipe)</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Minor leak fix (sink / pipe)" data-category="Plumbing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Toilet seat / flush repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Toilet seat / flush repair" data-category="Plumbing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Pipe unclogging</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Pipe unclogging" data-category="Plumbing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other plumbing work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Plumbing">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Plumbing')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">💡</div>
+              <h3>Electrical</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Switch / socket install</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Switch/socket repair" data-category="Electrical">₹149</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Fan install / regulator fix</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Fan installation" data-category="Electrical">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Tubelights / LED panels</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Tubelights / LED panels" data-category="Electrical">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Water heater install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Water heater install" data-category="Electrical">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">MCB / fuse box repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="MCB / fuse box repair" data-category="Electrical">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other electrical work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Electrical">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Electrical')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🪵</div>
+              <h3>Carpentry</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Drilling & wall plug fitting</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Drilling & wall plug fitting" data-category="Carpentry">₹100</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Shelf / frame mounting</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Shelf / frame mounting" data-category="Carpentry">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Door lock install / repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Door lock install / repair" data-category="Carpentry">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Curtain rod install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Curtain rod install" data-category="Carpentry">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Cabinet hinge repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Cabinet hinge repair" data-category="Carpentry">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other carpentry work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Carpentry">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Carpentry')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🧱</div>
+              <h3>Masonry & Civil</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Small plaster patch repair</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Small plaster patch repair" data-category="Masonry & Civil">₹399</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Tile re-fix / re-grouting</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Tile re-fix / re-grouting" data-category="Masonry & Civil">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Crack filling (wall / ceiling)</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Crack filling (wall / ceiling)" data-category="Masonry & Civil">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Minor waterproofing touch-up</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Minor waterproofing touch-up" data-category="Masonry & Civil">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Wall putty / paint touch-up</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Wall putty / paint touch-up" data-category="Masonry & Civil">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other masonry work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Masonry & Civil">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Masonry & Civil')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🔧</div>
+              <h3>Appliances</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Washing machine install</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Washing machine install" data-category="Home Setup">₹399</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">AC install / uninstall</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="AC install / uninstall" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Geyser install / repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Geyser install / repair" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Microwave / oven install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Microwave / oven install" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Chimney cleaning</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Chimney cleaning" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other home setup work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Home Setup">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Home Setup')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🚪</div>
+              <h3>Doors & Windows</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Door handle / knob repair</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Door handle / knob repair" data-category="Hardware">₹199</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Window latch / lock repair</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Window latch / lock repair" data-category="Hardware">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Door alignment adjustment</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Door alignment adjustment" data-category="Hardware">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Window glass replacement</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Window glass replacement" data-category="Hardware">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Mosquito net install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Mosquito net install" data-category="Hardware">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other hardware work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Hardware">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Hardware')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🛁</div>
+              <h3>Bathroom</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Bathroom mirror install</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Bathroom mirror install" data-category="Bathroom">₹299</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Towel rod / hook install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Towel rod / hook install" data-category="Bathroom">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Shower curtain rod install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Shower curtain rod install" data-category="Bathroom">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Bathroom exhaust fan install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Bathroom exhaust fan install" data-category="Bathroom">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Bathroom shelf install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Bathroom shelf install" data-category="Bathroom">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other bathroom work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Bathroom">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Bathroom')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🏠</div>
+              <h3>Home Setup</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">TV wall mount install</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="TV wall mount install" data-category="Home Setup">₹399</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Furniture assembly</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Furniture assembly" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Picture frame hanging</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Picture frame hanging" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Blinds / curtains install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Blinds / curtains install" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Home security camera install</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Home security camera install" data-category="Home Setup">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other home setup work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Home Setup">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Home Setup')">Get Quote</button>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div class="job-icon">🎨</div>
+              <h3>Painting & Finishing</h3>
+            </div>
+            <div class="job-services">
+              <div class="service-item">
+                <span class="service-name">Wall touch-up paint</span>
+                <span class="service-price clickable-price" data-service="Small Job" data-specific="Wall touch-up paint" data-category="Painting & Finishing">₹199</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Door / window frame paint</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Door / window frame paint" data-category="Painting & Finishing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Ceiling patch & paint</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Ceiling patch & paint" data-category="Painting & Finishing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Wall putty application</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Wall putty application" data-category="Painting & Finishing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Textured wall finish</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Textured wall finish" data-category="Painting & Finishing">Quote</span>
+              </div>
+              <div class="service-item">
+                <span class="service-name">Other painting work</span>
+                <span class="service-price clickable-quote" data-service="Small Job" data-specific="Other" data-category="Painting & Finishing">Quote</span>
+              </div>
+            </div>
+            <div class="card-cta">
+              <button class="btn secondary" onclick="scrollToQuote('Painting & Finishing')">Get Quote</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="jobs-cta">
+          <p class="disclaimer"><span class="info-icon">ℹ️</span> Final price may vary based on on-site assessment and materials required.</p>
+          <a href="#request" class="btn primary">Get Quote for Your Job</a>
+        </div>
+      </section>
+
+      <!-- Ready to Request Section -->
+      <section id="ready-to-request" class="ready-to-request">
+        <div class="container">
+          <div class="request-highlight">
+            <h2>🚀 Ready to Get Your Project Started?</h2>
+            <p>Fill out the form below and get quotes from verified contractors within 24 hours!</p>
+            <div class="request-stats">
+              <div class="request-stat">
+                <span class="stat-number">24hrs</span>
+                <span class="stat-label">Quote Delivery</span>
+              </div>
+              <div class="request-stat">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Top Bids</span>
+              </div>
+              <div class="request-stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Warranty</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Request a Quote Form -->
+      <section id="request" class="registration-section">
+        <div class="container">
+          <div class="registration-form-container">
+            <div class="card">
+              <div class="card-head">Request a Quote</div>
+              <div class="card-body">
+                <div class="muted" style="margin-bottom: 16px;">Tell us about your project and get top 3 contractor quotes within 24 hours</div>
+                
+                <form id="customerForm" class="grid" style="gap: 16px;">
+                  <div class="row row-2">
+                    <div>
+                      <label class="label" for="cust_name">Full name *</label>
+                      <input id="cust_name" name="cust_name" class="input" required />
+                      <div class="field-error" id="cust_name_error"></div>
+                    </div>
+                    <div>
+                      <label class="label" for="cust_phone">Phone (WhatsApp) *</label>
+                      <input id="cust_phone" name="cust_phone" class="input" type="tel" maxlength="15" placeholder="10-digit" required />
+                      <div class="field-error" id="cust_phone_error"></div>
+                    </div>
+                  </div>
+
+                  <div class="row row-2">
+                    <div>
+                      <label class="label" for="cust_email">Email address</label>
+                      <input id="cust_email" name="cust_email" class="input" type="email" placeholder="name@example.com" />
+                      <div class="field-error" id="cust_email_error"></div>
+                    </div>
+                    <div>
+                      <label class="label" for="cust_city">City *</label>
+                      <select id="cust_city" name="cust_city" class="input" required>
+                        <option value="">Select city…</option>
+                        <option value="Bengaluru">Bengaluru</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <div class="field-error" id="cust_city_error"></div>
+                    </div>
+                  </div>
+
+                  <div id="city_other_input" style="display: none;">
+                    <label class="label" for="cust_city_other">Other City *</label>
+                    <input id="cust_city_other" name="cust_city_other" class="input" placeholder="Enter your city name" />
+                  </div>
+
+                  <div class="row row-2">
+                    <div>
+                      <label class="label" for="cust_service">Service type *</label>
+                      <select id="cust_service" name="cust_service" class="input" required>
+                        <option value="">Choose a service</option>
+                        <option value="Small Job">Small Job (fix/replace/install)</option>
+                        <option value="Home Renovation">Home Renovation</option>
+                        <option value="Interior Fit-out">Interior Fit-out</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <div class="field-error" id="cust_service_error"></div>
+                    </div>
+                    <div>
+                      <label class="label" for="cust_budget">Budget (optional)</label>
+                      <input id="cust_budget" class="input" placeholder="e.g., ₹50,000" />
+                    </div>
+                  </div>
+
+                  <div id="service_other_input" style="display: none;">
+                    <label class="label" for="cust_service_other">Other Service Type *</label>
+                    <input id="cust_service_other" class="input" placeholder="Describe your service type" />
+                  </div>
+
+                  <div id="small_job_categories" style="display: none;">
+                    <label class="label">Quick Fix Categories</label>
+                    <div class="category-buttons">
+                      <button type="button" class="category-btn" data-category="Plumbing">
+                        <span class="category-icon">🚰</span>
+                        <span class="category-name">Plumbing</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Electrical">
+                        <span class="category-icon">💡</span>
+                        <span class="category-name">Electrical</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Carpentry">
+                        <span class="category-icon">🪵</span>
+                        <span class="category-name">Carpentry</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Masonry & Civil">
+                        <span class="category-icon">🧱</span>
+                        <span class="category-name">Masonry & Civil</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Appliances">
+                        <span class="category-icon">🔧</span>
+                        <span class="category-name">Appliances</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Doors & Windows">
+                        <span class="category-icon">🚪</span>
+                        <span class="category-name">Doors & Windows</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Bathroom">
+                        <span class="category-icon">🛁</span>
+                        <span class="category-name">Bathroom</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Home Setup">
+                        <span class="category-icon">🏠</span>
+                        <span class="category-name">Home Setup</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Painting & Finishing">
+                        <span class="category-icon">🎨</span>
+                        <span class="category-name">Painting & Finishing</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="specific_service_options" style="display: none;">
+                    <label class="label" for="cust_specific_service">Specific Service *</label>
+                    <select id="cust_specific_service" name="cust_specific_service" class="input" required>
+                      <option value="">Select specific service</option>
+                    </select>
+                    <div class="field-error" id="cust_specific_service_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="cust_description">Project description <span id="description_required">*</span></label>
+                    <textarea id="cust_description" name="cust_description" class="input" rows="4" placeholder="Tell us what needs to be done..."></textarea>
+                    <div class="field-error" id="cust_description_error"></div>
+                  </div>
+
+                  <div class="row row-2">
+                    <div>
+                      <label class="label" for="cust_visit">Preferred visit date</label>
+                      <input id="cust_visit" name="cust_visit" class="input" type="date" placeholder="dd/mm/yyyy" />
+                    </div>
+                    <div>
+                      <label class="label" for="cust_timeline">Project timeline *</label>
+                      <select id="cust_timeline" name="cust_timeline" class="input" required>
+                        <option value="">Select timeline</option>
+                        <option>ASAP</option>
+                        <option>Within 1 week</option>
+                        <option>Within 1 month</option>
+                        <option>Within 3 months</option>
+                        <option>Flexible</option>
+                      </select>
+                      <div class="field-error" id="cust_timeline_error"></div>
+                    </div>
+                  </div>
+
+                  <div class="banner"><b>📞 Contact us:</b> Email: support@urbanta.com | WhatsApp: +91 98765 43210</div>
+
+                  <div class="privacy-note">
+                    <small>By submitting this form, you agree to our <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted by Urbanta. We don't sell or share your data with any 3rd party.</small>
+                  </div>
+
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <button id="cust_submit" type="submit" class="btn primary">Get Free Quote</button>
+                    <div id="cust_error" class="error"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+
+  <!-- Request Callback Button -->
+  <button id="callbackBtn" class="callback-btn" aria-label="Request a callback">
+    📞
+  </button>
+
+  <!-- Callback Modal -->
+  <div id="callbackModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="callbackTitle">
+    <div class="modal-content callback-modal" tabindex="-1">
+      <div class="modal-header">
+        <div class="callback-header-content">
+          <div class="callback-icon">📞</div>
+          <div class="callback-title">
+            <h3 id="callbackTitle">Get a Free Callback</h3>
+            <p>We'll call you back within 24 hours!</p>
+          </div>
+        </div>
+        <button class="modal-close" id="callbackClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="callback-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">⚡</span>
+            <span>Quick response within 24 hours</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💬</span>
+            <span>Free consultation & quote</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🎯</span>
+            <span>Personalized service recommendations</span>
+          </div>
+        </div>
+        
+        <form id="callbackForm">
+          <div class="form-group">
+            <label for="callback_name">Full Name *</label>
+            <input type="text" id="callback_name" name="callback_name" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="callback_phone">Phone Number *</label>
+            <input type="tel" id="callback_phone" name="callback_phone" required placeholder="Enter your 10-digit phone number">
+          </div>
+          <div class="form-group">
+            <label for="callback_service">Service Needed</label>
+            <select id="callback_service" name="callback_service">
+              <option value="">Select a service</option>
+              <option value="plumbing">Plumbing</option>
+              <option value="electrical">Electrical</option>
+              <option value="carpentry">Carpentry</option>
+              <option value="painting">Painting</option>
+              <option value="cleaning">Cleaning & Maintenance</option>
+              <option value="renovation">Renovation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="callback_message">Additional Details (Optional)</label>
+            <textarea id="callback_message" name="callback_message" rows="3" placeholder="Tell us more about your project or any specific requirements..."></textarea>
+          </div>
+          <div class="callback-urgency">
+            <label class="urgency-label disabled">
+              <input type="checkbox" id="callback_urgent" name="callback_urgent" disabled>
+              <span class="checkmark"></span>
+              <span class="urgency-text">This is urgent - call me ASAP! <small>(Coming soon)</small></span>
+            </label>
+          </div>
+          <button type="submit" class="btn primary callback-submit">
+            <span class="btn-text">Request Free Callback</span>
+            <span class="btn-icon">📞</span>
+          </button>
+        </form>
+        
+        <div class="callback-guarantee">
+          <p>🔒 Your information is safe with us. We never share your details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-name">Urbanta</div>
+          <p class="footer-tagline">Building trust in construction</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Urbanta. All rights reserved. | v0.4.10</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="supabase.min.js?v=1"></script>
+  <script>
+    // Test if Supabase loaded
+    console.log('Script loaded, checking Supabase...');
+    console.log('typeof supabase:', typeof supabase);
+    if (typeof supabase !== 'undefined') {
+      console.log('✅ Supabase library loaded successfully');
+    } else {
+      console.log('❌ Supabase library not loaded');
+    }
+  </script>
+  <script src="supabase.min.js?v=1"></script>
+  <script src="supabase-config.js?v=2"></script>
+  <script src="script.js"></script>
+  <script>
+    // Mobile Menu Functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      
+      // Open mobile menu
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+      });
+      
+      // Close mobile menu
+      mobileMenuClose.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+      
+      // Close menu when clicking outside
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+      
+      // Close menu on scroll
+      window.addEventListener('scroll', function() {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+
+      // User Toggle Functionality
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent any default behavior
+          
+          // Remove active class from all buttons
+          toggleButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the view type
+          const viewType = this.getAttribute('data-view');
+          
+          // Navigate to appropriate page
+          if (viewType === 'customer') {
+            window.location.href = 'customer.html';
+          } else if (viewType === 'contractor') {
+            window.location.href = 'registration.html';
+          } else if (viewType === 'home') {
+            window.location.href = 'index.html';
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    // Section Toggle Functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      // Handle navigation links to hidden sections
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection && targetSection.classList.contains('hidden-section')) {
+            // Show the section
+            targetSection.classList.add('visible');
+            
+            // Scroll to the section with smooth animation
+            setTimeout(() => {
+              targetSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }, 100);
+          } else if (targetSection) {
+            // Regular scroll for visible sections
+            targetSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Handle floating TOC links to hidden sections
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection && targetSection.classList.contains('hidden-section')) {
+            // Show the section
+            targetSection.classList.add('visible');
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    // Floating Table of Contents functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const floatingToc = document.getElementById('floatingToc');
+      const tocToggle = document.getElementById('tocToggle');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('section[id], div[id]');
+
+      // Toggle TOC collapse/expand
+      if (tocToggle) {
+        tocToggle.addEventListener('click', function() {
+          floatingToc.classList.toggle('collapsed');
+          this.textContent = floatingToc.classList.contains('collapsed') ? '+' : '−';
+        });
+      }
+
+      // Show/hide TOC based on scroll position
+      function toggleTocVisibility() {
+        const scrollPos = window.scrollY;
+        if (scrollPos > 300) { // Show after scrolling 300px
+          floatingToc.classList.add('visible');
+        } else {
+          floatingToc.classList.remove('visible');
+        }
+      }
+
+      // Highlight current section on scroll
+      function highlightCurrentSection() {
+        let current = '';
+        const scrollPos = window.scrollY + 150; // Offset for better detection
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        // If no section is found, check if we're at the top
+        if (!current && window.scrollY < 200) {
+          current = 'hero';
+        }
+
+        // Update active link
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      // Smooth scrolling for TOC links
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Listen for scroll events
+      window.addEventListener('scroll', function() {
+        toggleTocVisibility();
+        highlightCurrentSection();
+      });
+      
+      // Initial setup
+      toggleTocVisibility();
+      highlightCurrentSection();
+    });
+
+    // Back to Top Button functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const backToTopButton = document.getElementById('backToTop');
+
+      // Show/hide back to top button based on scroll position
+      function toggleBackToTop() {
+        if (window.scrollY > 200) { // Show after scrolling 200px
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      }
+
+      // Smooth scroll to top when clicked
+      if (backToTopButton) {
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // Listen for scroll events
+      window.addEventListener('scroll', toggleBackToTop);
+      
+      // Initial setup
+      toggleBackToTop();
+    });
+
+    // Clickable price and quote functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const clickablePrices = document.querySelectorAll('.clickable-price, .clickable-quote');
+      
+      clickablePrices.forEach(price => {
+        price.addEventListener('click', function() {
+          const service = this.getAttribute('data-service');
+          const specific = this.getAttribute('data-specific');
+          const category = this.getAttribute('data-category');
+          
+          // Scroll to quote form
+          const quoteForm = document.getElementById('request');
+          if (quoteForm) {
+            quoteForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Auto-fill the form after a short delay
+            setTimeout(() => {
+              // Set service type to "Small Job"
+              const serviceSelect = document.getElementById('cust_service');
+              if (serviceSelect) {
+                serviceSelect.value = 'Small Job';
+                serviceSelect.dispatchEvent(new Event('change'));
+              }
+              
+              // Select the category
+              const categoryButtons = document.querySelectorAll('.category-btn');
+              categoryButtons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                  btn.click();
+                }
+              });
+              
+              // Set specific service after category is selected
+              setTimeout(() => {
+                const specificSelect = document.getElementById('cust_specific_service');
+                if (specificSelect) {
+                  // Check if this is an "Other" service
+                  if (specific === 'Other') {
+                    specificSelect.value = 'Other';
+                    // Show other input
+                    const otherInput = document.getElementById('cust_specific_other');
+                    if (otherInput) {
+                      otherInput.style.display = 'block';
+                      otherInput.placeholder = 'Describe your custom service...';
+                      otherInput.required = true;
+                    }
+                  } else {
+                    // Find matching option
+                    const options = Array.from(specificSelect.options);
+                    const matchingOption = options.find(option => 
+                      option.textContent.toLowerCase().includes(specific.toLowerCase()) ||
+                      specific.toLowerCase().includes(option.textContent.toLowerCase())
+                    );
+                    
+                    if (matchingOption) {
+                      specificSelect.value = matchingOption.value;
+                    } else {
+                      specificSelect.value = 'Other';
+                      // Show other input and fill it
+                      const otherInput = document.getElementById('cust_specific_other');
+                      if (otherInput) {
+                        otherInput.style.display = 'block';
+                        otherInput.value = specific;
+                        otherInput.required = true;
+                      }
+                    }
+                  }
+                  specificSelect.dispatchEvent(new Event('change'));
+                }
+              }, 300);
+              
+            }, 500);
+          }
+        });
+      });
+    });
+
+    // Callback Modal functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const callbackBtn = document.getElementById('callbackBtn');
+      const callbackModal = document.getElementById('callbackModal');
+      const callbackClose = document.getElementById('callbackClose');
+      const callbackForm = document.getElementById('callbackForm');
+
+      // Open callback modal
+      if (callbackBtn) {
+        callbackBtn.addEventListener('click', function() {
+          callbackModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          // Hide the main header when modal is open
+          const mainHeader = document.querySelector('header');
+          if (mainHeader) {
+            mainHeader.style.display = 'none';
+          }
+        });
+      }
+
+      // Close callback modal
+      if (callbackClose) {
+        callbackClose.addEventListener('click', function() {
+          callbackModal.classList.add('hidden');
+          document.body.style.overflow = '';
+          // Show the main header when modal is closed
+          const mainHeader = document.querySelector('header');
+          if (mainHeader) {
+            mainHeader.style.display = '';
+          }
+        });
+      }
+
+      // Close modal when clicking outside
+      if (callbackModal) {
+        callbackModal.addEventListener('click', function(e) {
+          if (e.target === callbackModal) {
+            callbackModal.classList.add('hidden');
+            document.body.style.overflow = '';
+            // Show the main header when modal is closed
+            const mainHeader = document.querySelector('header');
+            if (mainHeader) {
+              mainHeader.style.display = '';
+            }
+          }
+        });
+      }
+
+      // Handle callback form submission
+      if (callbackForm) {
+        let isSubmitting = false;
+        callbackForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Prevent duplicate submissions
+          if (isSubmitting) {
+            console.log('Callback form already submitting, ignoring duplicate submission');
+            return;
+          }
+          isSubmitting = true;
+          
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData.entries());
+
+          // Validate phone number (10 digits)
+          const phoneDigits = data.callback_phone.replace(/\D/g, '');
+          if(!/^\d{10}$/.test(phoneDigits)){
+            alert('Please enter a valid 10-digit phone number.');
+            isSubmitting = false;
+            return;
+          }
+
+          // Prepare data for Supabase
+          const callbackData = {
+            callback_name: data.callback_name,
+            callback_phone: data.callback_phone,
+            callback_service: data.callback_service || '',
+            callback_message: data.callback_message || '',
+            callback_urgent: data.callback_urgent || false,
+            callback_type: 'customer'
+          };
+
+          console.log('Customer callback data:', callbackData);
+
+          try {
+            // Submit to Supabase
+            await submitCallbackToSupabase(callbackData);
+
+            // Use replace instead of href to avoid browser confirmation dialogs
+            window.location.replace('thank-you.html?type=callback');
+            
+          } catch (error) {
+            console.error('Error submitting callback request:', error);
+            // Use replace instead of href to avoid browser confirmation dialogs
+            window.location.replace('thank-you.html?type=callback');
+          }
+        });
+      }
+    });
+
+    // Service options data
+    const serviceOptions = {
+      "Plumbing": [
+        "Tap / faucet install & replacement",
+        "Shower head install & replacement",
+        "Minor leak fix (sink / pipe)",
+        "Toilet seat / flush repair",
+        "Pipe unclogging",
+        "Other"
+      ],
+      "Electrical": [
+        "Switch / socket install",
+        "Fan install / regulator fix",
+        "Tubelights / LED panels",
+        "Water heater install",
+        "MCB / fuse box repair",
+        "Other"
+      ],
+      "Carpentry": [
+        "Drilling & wall plug fitting",
+        "Shelf / frame mounting",
+        "Door lock install / repair",
+        "Curtain rod install",
+        "Cabinet hinge repair",
+        "Other"
+      ],
+      "Masonry & Civil": [
+        "Small plaster patch repair",
+        "Tile re-fix / re-grouting",
+        "Crack filling (wall / ceiling)",
+        "Minor waterproofing touch-up",
+        "Wall putty / paint touch-up",
+        "Other"
+      ],
+      "Home Setup": [
+        "Washing machine install",
+        "AC install / uninstall",
+        "Geyser install / repair",
+        "Microwave / oven install",
+        "Chimney cleaning",
+        "TV wall mount install",
+        "Furniture assembly",
+        "Picture frame hanging",
+        "Blinds / curtains install",
+        "Home security camera install",
+        "Other"
+      ],
+      "Hardware": [
+        "Door handle / knob repair",
+        "Window latch / lock repair",
+        "Door alignment adjustment",
+        "Window glass replacement",
+        "Mosquito net install",
+        "Other"
+      ],
+      "Bathroom": [
+        "Bathroom mirror install",
+        "Towel rod / hook install",
+        "Shower curtain rod install",
+        "Bathroom exhaust fan install",
+        "Bathroom shelf install",
+        "Other"
+      ],
+      "Painting & Finishing": [
+        "Wall touch-up paint",
+        "Door / window frame paint",
+        "Ceiling patch & paint",
+        "Wall putty application",
+        "Textured wall finish",
+        "Other"
+      ]
+    };
+
+    // Customer form handling
+    document.addEventListener("DOMContentLoaded", function() {
+      const customerForm = document.getElementById("customerForm");
+      console.log('Customer form found:', customerForm);
+      
+      if (!customerForm) {
+        console.error('Customer form not found!');
+        return;
+      }
+      const serviceSelect = document.getElementById("cust_service");
+      const serviceOtherInput = document.getElementById("service_other_input");
+      const serviceOtherField = document.getElementById("cust_service_other");
+      const citySelect = document.getElementById("cust_city");
+      const cityOtherInput = document.getElementById("city_other_input");
+      const cityOtherField = document.getElementById("cust_city_other");
+      const smallJobCategories = document.getElementById("small_job_categories");
+      const specificServiceOptions = document.getElementById("specific_service_options");
+      const specificServiceSelect = document.getElementById("cust_specific_service");
+      const categoryButtons = document.querySelectorAll(".category-btn");
+
+      // Initialize: Make specific service field not required on page load
+      if (specificServiceSelect) {
+        specificServiceSelect.required = false;
+      }
+
+      // Handle service type change
+      if (serviceSelect) {
+        serviceSelect.addEventListener("change", function() {
+          const selectedService = this.value;
+          const descriptionField = document.getElementById('cust_description');
+          const descriptionLabel = document.querySelector('label[for="cust_description"]');
+          
+          if (selectedService === "Small Job") {
+            // Make description optional for small jobs
+            descriptionField.required = false;
+            const descriptionRequired = document.getElementById('description_required');
+            if (descriptionRequired) {
+              descriptionRequired.textContent = '(optional)';
+              descriptionRequired.style.color = 'var(--muted)';
+            }
+            smallJobCategories.style.display = "block";
+            specificServiceOptions.style.display = "none";
+            
+            // Don't make specific service required until a category is selected
+            if (specificServiceSelect) {
+              specificServiceSelect.required = false;
+            }
+          } else {
+            // Make description required for other service types
+            descriptionField.required = true;
+            const descriptionRequired = document.getElementById('description_required');
+            if (descriptionRequired) {
+              descriptionRequired.textContent = '*';
+              descriptionRequired.style.color = 'var(--text)';
+            }
+            smallJobCategories.style.display = "none";
+            specificServiceOptions.style.display = "none";
+            
+            // Remove required attribute from specific service field for non-Small Job services
+            if (specificServiceSelect) {
+              specificServiceSelect.required = false;
+            }
+          }
+          
+          if (this.value === "Other") {
+            serviceOtherInput.style.display = "block";
+            if (serviceOtherField) {
+              serviceOtherField.required = true;
+            }
+          } else {
+            serviceOtherInput.style.display = "none";
+            if (serviceOtherField) {
+              serviceOtherField.required = false;
+              serviceOtherField.value = "";
+            }
+          }
+        });
+      }
+
+      // Handle city change
+      if (citySelect) {
+        citySelect.addEventListener("change", function() {
+          if (this.value === "Other") {
+            cityOtherInput.style.display = "block";
+            if (cityOtherField) {
+              cityOtherField.required = true;
+            }
+          } else {
+            cityOtherInput.style.display = "none";
+            if (cityOtherField) {
+              cityOtherField.required = false;
+              cityOtherField.value = "";
+            }
+          }
+        });
+      }
+
+      // Handle service type change
+      if (serviceSelect) {
+        serviceSelect.addEventListener("change", function() {
+          if (this.value === "Small Job") {
+            smallJobCategories.style.display = "block";
+            specificServiceOptions.style.display = "none";
+          } else {
+            smallJobCategories.style.display = "none";
+            specificServiceOptions.style.display = "none";
+          }
+        });
+      }
+
+      // Handle category button clicks
+      categoryButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          // Remove active class from all buttons
+          categoryButtons.forEach(btn => btn.classList.remove("active"));
+          
+          // Add active class to clicked button
+          this.classList.add("active");
+          
+          // Get category name
+          const category = this.getAttribute("data-category");
+          
+          // Populate specific service options
+          if (specificServiceSelect && serviceOptions[category]) {
+            specificServiceSelect.innerHTML = '<option value="">Select specific service</option>';
+            
+            serviceOptions[category].forEach(service => {
+              const option = document.createElement("option");
+              option.value = service;
+              option.textContent = service;
+              specificServiceSelect.appendChild(option);
+            });
+            
+            // Show specific service options and make it required
+            specificServiceOptions.style.display = "block";
+            specificServiceSelect.required = true;
+          }
+        });
+      });
+
+      // Handle specific service change for "Other"
+      if (specificServiceSelect) {
+        specificServiceSelect.addEventListener("change", function() {
+          if (this.value === "Other") {
+            // Add text input for custom service
+            let customInput = document.getElementById("cust_specific_other");
+            if (!customInput) {
+              const formGroup = this.parentElement;
+              customInput = document.createElement("input");
+              customInput.type = "text";
+              customInput.id = "cust_specific_other";
+              customInput.name = "cust_specific_other";
+              customInput.className = "input";
+              customInput.placeholder = "Describe your specific service need";
+              customInput.style.marginTop = "8px";
+              formGroup.appendChild(customInput);
+            }
+            customInput.style.display = "block";
+          } else {
+            // Hide custom input
+            const customInput = document.getElementById("cust_specific_other");
+            if (customInput) {
+              customInput.style.display = "none";
+            }
+          }
+        });
+      }
+
+      if (customerForm) {
+        console.log('Adding form submit event listener...');
+        customerForm.addEventListener("submit", async (e) => {
+          console.log('Form submit event triggered!');
+          e.preventDefault();
+          // Individual field validation with clear error messages
+          console.log('Starting individual field validation...');
+          
+          const fd = new FormData(e.target);
+          const data = Object.fromEntries(fd.entries());
+          console.log('Form data:', data);
+          console.log('City field:', data.cust_city);
+          console.log('City other field:', data.cust_city_other);
+          console.log('Selected service:', data.cust_service);
+          
+          // Validate each required field individually
+          let validationErrors = [];
+          
+          // Name validation
+          console.log('Validating name:', data.cust_name);
+          if (!data.cust_name || data.cust_name.trim().length < 2) {
+            validationErrors.push('Name must be at least 2 characters');
+            console.log('Name validation failed');
+            const errorDiv = document.getElementById('cust_name_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'Name must be at least 2 characters';
+              errorDiv.classList.add('show');
+            }
+          } else {
+            console.log('Name validation passed');
+            const errorDiv = document.getElementById('cust_name_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Phone validation
+          console.log('Validating phone:', data.cust_phone);
+          if (!data.cust_phone) {
+            validationErrors.push('Phone number is required');
+            console.log('Phone validation failed - empty');
+            const errorDiv = document.getElementById('cust_phone_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'Phone number is required';
+              errorDiv.classList.add('show');
+            }
+          } else {
+            const phoneDigits = data.cust_phone.replace(/\D/g, '');
+            console.log('Phone digits:', phoneDigits, 'Length:', phoneDigits.length);
+            if (phoneDigits.length !== 10) {
+              validationErrors.push('Phone number must be exactly 10 digits');
+              console.log('Phone validation failed - wrong length');
+              const errorDiv = document.getElementById('cust_phone_error');
+              if (errorDiv) {
+                errorDiv.textContent = 'Phone number must be exactly 10 digits';
+                errorDiv.classList.add('show');
+              }
+            } else {
+              console.log('Phone validation passed');
+              const errorDiv = document.getElementById('cust_phone_error');
+              if (errorDiv) errorDiv.classList.remove('show');
+            }
+          }
+          
+          // City validation
+          console.log('Validating city:', data.cust_city);
+          if (!data.cust_city) {
+            validationErrors.push('City is required');
+            console.log('City validation failed');
+            const errorDiv = document.getElementById('cust_city_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'City is required';
+              errorDiv.classList.add('show');
+            }
+          } else {
+            console.log('City validation passed');
+            const errorDiv = document.getElementById('cust_city_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Service validation
+          console.log('Validating service:', data.cust_service);
+          if (!data.cust_service) {
+            validationErrors.push('Service type is required');
+            console.log('Service validation failed');
+            const errorDiv = document.getElementById('cust_service_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'Service type is required';
+              errorDiv.classList.add('show');
+            }
+          } else {
+            console.log('Service validation passed');
+            const errorDiv = document.getElementById('cust_service_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Timeline validation
+          console.log('Validating timeline:', data.cust_timeline);
+          if (!data.cust_timeline) {
+            validationErrors.push('Project timeline is required');
+            console.log('Timeline validation failed');
+            const errorDiv = document.getElementById('cust_timeline_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'Project timeline is required';
+              errorDiv.classList.add('show');
+            }
+          } else {
+            console.log('Timeline validation passed');
+            const errorDiv = document.getElementById('cust_timeline_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Specific service validation
+          if (data.cust_service === 'Small Job') {
+            // For Small Jobs, specific service is only required if a category was selected
+            // Check if the specific service field is visible and has a value
+            const specificServiceField = document.getElementById('cust_specific_service');
+            const specificServiceOptions = document.getElementById('specific_service_options');
+            
+            if (specificServiceOptions && specificServiceOptions.style.display !== 'none') {
+              // Field is visible, so it should have a value
+              if (!data.cust_specific_service || data.cust_specific_service.trim() === '') {
+                validationErrors.push('Specific service is required');
+                const errorDiv = document.getElementById('cust_specific_service_error');
+                if (errorDiv) {
+                  errorDiv.textContent = 'Specific service is required';
+                  errorDiv.classList.add('show');
+                }
+              } else {
+                const errorDiv = document.getElementById('cust_specific_service_error');
+                if (errorDiv) errorDiv.classList.remove('show');
+              }
+            } else {
+              // Field is hidden, clear any errors
+              const errorDiv = document.getElementById('cust_specific_service_error');
+              if (errorDiv) errorDiv.classList.remove('show');
+            }
+          } else {
+            // For other service types, specific service is not required (field is hidden)
+            const errorDiv = document.getElementById('cust_specific_service_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Description validation (optional for Small Job)
+          console.log('Validating description for service:', data.cust_service);
+          console.log('Service type check:', data.cust_service === 'Small Job');
+          
+          // Only validate description if service is selected and it's NOT Small Job
+          if (data.cust_service && data.cust_service !== 'Small Job') {
+            // Description is required for other service types
+            console.log('Other service - validating description:', data.cust_description);
+            if (!data.cust_description || data.cust_description.trim().length < 10) {
+              validationErrors.push('Description must be at least 10 characters');
+              console.log('Description validation failed');
+              const errorDiv = document.getElementById('cust_description_error');
+              if (errorDiv) {
+                errorDiv.textContent = 'Description must be at least 10 characters';
+                errorDiv.classList.add('show');
+              }
+            } else {
+              console.log('Description validation passed');
+              const errorDiv = document.getElementById('cust_description_error');
+              if (errorDiv) errorDiv.classList.remove('show');
+            }
+          } else {
+            // For Small Job or no service selected, description is optional
+            console.log('Small Job or no service - description optional, skipping validation');
+            const errorDiv = document.getElementById('cust_description_error');
+            if (errorDiv) errorDiv.classList.remove('show');
+          }
+          
+          // Check if there are validation errors
+          if (validationErrors.length > 0) {
+            console.log('=== VALIDATION DEBUG ===');
+            console.log('Validation errors:', validationErrors);
+            console.log('Form data:', data);
+            console.log('Service type:', data.cust_service);
+            console.log('Name:', data.cust_name);
+            console.log('Phone:', data.cust_phone);
+            console.log('City:', data.cust_city);
+            console.log('Timeline:', data.cust_timeline);
+            console.log('Description:', data.cust_description);
+            console.log('Specific Service:', data.cust_specific_service);
+            console.log('========================');
+            alert('Please fix the following errors:\n' + validationErrors.join('\n'));
+            return;
+          }
+          
+          console.log('All validations passed');
+
+          const submitBtn = document.getElementById('cust_submit');
+
+          // Show loading state
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+
+          try {
+            // Format date for database
+            let formattedDate = null;
+            if (data.cust_visit) {
+              formattedDate = data.cust_visit; // Already in YYYY-MM-DD format
+            }
+
+            const customerData = {
+              cust_name: data.cust_name,
+              cust_phone: data.cust_phone,
+              cust_email: data.cust_email || '',
+              cust_city: data.cust_city,
+              cust_city_other: data.cust_city_other || '',
+              cust_service: data.cust_service,
+              cust_specific_service: data.cust_specific_service || '',
+              cust_specific_other: data.cust_specific_other || '',
+              cust_budget: data.cust_budget || '',
+              cust_timeline: data.cust_timeline,
+              cust_visit: formattedDate,
+              cust_description: data.cust_description || ''
+            };
+
+            console.log('Form data collected:', data);
+            console.log('Prepared customer data:', customerData);
+
+            // Submit to Supabase
+            await submitCustomerToSupabase(customerData);
+
+            // Success - redirect to thank you page
+            window.location.href = 'thank-you.html?v=1';
+
+          } catch (error) {
+            console.error('Form submission error:', error);
+            
+            // Demo mode is now handled in supabase-config.js
+            
+            // Show error message for real errors
+            const errorDiv = document.getElementById('cust_error');
+            if (errorDiv) {
+              errorDiv.textContent = 'Submission failed. Please try again or contact support.';
+              errorDiv.classList.add('show');
+            }
+            
+            // Add retry button
+            const retryBtn = document.createElement('button');
+            retryBtn.textContent = 'Try Again';
+            retryBtn.className = 'btn secondary';
+            retryBtn.style.marginTop = '8px';
+            retryBtn.onclick = () => {
+              errorDiv.classList.remove('show');
+              retryBtn.remove();
+              submitBtn.classList.remove('loading');
+              submitBtn.disabled = false;
+            };
+            
+            if (errorDiv) {
+              errorDiv.appendChild(retryBtn);
+            }
+          } finally {
+            // Reset loading state
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          }
+        });
+      }
+    });
+
+    // Function to scroll to quote form and pre-fill service category
+    function scrollToQuote(serviceCategory) {
+      const formSection = document.getElementById('request');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Auto-fill the form after a short delay
+        setTimeout(() => {
+          // Set service type to "Small Job"
+          const serviceSelect = document.getElementById('cust_service');
+          if (serviceSelect) {
+            serviceSelect.value = 'Small Job';
+            serviceSelect.dispatchEvent(new Event('change'));
+          }
+          
+          // Select the category
+          const categoryButtons = document.querySelectorAll('.category-btn');
+          categoryButtons.forEach(btn => {
+            if (btn.getAttribute('data-category') === serviceCategory) {
+              btn.click();
+            }
+          });
+          
+        }, 500);
+      }
+    }
+
+    // Handle FAQ toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        // Close other FAQ items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+
+    // Real-time form validation for individual fields
+    const formFields = document.querySelectorAll('#customerForm input, #customerForm select, #customerForm textarea');
+    
+    formFields.forEach(field => {
+      const errorElement = document.getElementById(field.id + '_error');
+      
+      if (errorElement) {
+        // Real-time validation for input fields
+        field.addEventListener('input', (e) => {
+          if (e.inputType === 'insertReplacementText' || e.inputType === 'insertCompositionText') {
+            // This is likely autocomplete
+            setTimeout(() => {
+              validateField(field, errorElement);
+            }, 10);
+          } else {
+            validateField(field, errorElement);
+          }
+        });
+
+        // Real-time validation for select fields
+        if (field.tagName === 'SELECT') {
+          field.addEventListener('change', () => {
+            validateField(field, errorElement);
+          });
+        }
+
+        // Handle autocomplete selection (browser suggestions) for input fields
+        field.addEventListener('change', () => {
+          validateField(field, errorElement);
+        });
+
+        // Handle paste events
+        field.addEventListener('paste', () => {
+          setTimeout(() => {
+            validateField(field, errorElement);
+          }, 10); // Small delay to allow paste to complete
+        });
+
+        // Handle when user clicks on autocomplete suggestion
+        field.addEventListener('click', () => {
+          setTimeout(() => {
+            validateField(field, errorElement);
+          }, 50);
+        });
+
+        // Handle when user presses Enter (common with autocomplete)
+        field.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            setTimeout(() => {
+              validateField(field, errorElement);
+            }, 10);
+          }
+        });
+
+        // Handle autocomplete animation (Chrome/Safari autocomplete detection)
+        field.addEventListener('animationstart', (e) => {
+          if (e.animationName === 'onAutoFillStart') {
+            setTimeout(() => {
+              validateField(field, errorElement);
+            }, 100);
+          }
+        });
+
+        // Also handle animationend for more reliable autocomplete detection
+        field.addEventListener('animationend', (e) => {
+          if (e.animationName === 'onAutoFillStart') {
+            setTimeout(() => {
+              validateField(field, errorElement);
+            }, 50);
+          }
+        });
+      }
+    });
+
+    // Watch for autofill changes (browser autofill sometimes happens after page load)
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
+          const field = mutation.target;
+          const errorElement = document.getElementById(field.id + '_error');
+          if (errorElement && field.value.trim().length > 0) {
+            validateField(field, errorElement);
+          }
+        }
+      });
+    });
+
+    // Observe all form fields for value changes
+    formFields.forEach(field => {
+      observer.observe(field, { attributes: true, attributeFilter: ['value'] });
+    });
+
+    // Also check for autofill after a delay
+    setTimeout(() => {
+      formFields.forEach(field => {
+        const errorElement = document.getElementById(field.id + '_error');
+        if (errorElement && field.value.trim().length > 0) {
+          validateField(field, errorElement);
+        }
+      });
+    }, 1000);
+
+    // Additional check for autocomplete after longer delay
+    setTimeout(() => {
+      formFields.forEach(field => {
+        const errorElement = document.getElementById(field.id + '_error');
+        if (errorElement && field.value.trim().length > 0) {
+          validateField(field, errorElement);
+        }
+      });
+    }, 2000);
+
+    // Form Validation Functions
+    function validateField(field, errorElement) {
+      const value = field.value.trim();
+      let isValid = true;
+      let errorMessage = '';
+
+      // Required field validation - check if field is actually required
+      const isRequired = field.hasAttribute('required') && field.required;
+      if (isRequired && !value) {
+        isValid = false;
+        errorMessage = 'This field is required';
+      }
+
+      // Email validation
+      if (field.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          isValid = false;
+          errorMessage = 'Please enter a valid email address';
+        }
+      }
+
+      // Phone validation
+      if (field.type === 'tel') {
+        const phoneDigits = value.replace(/\D/g, '');
+        
+        if (!value) {
+          isValid = false;
+          errorMessage = 'Phone number is required';
+        } else if (phoneDigits.length === 0) {
+          isValid = false;
+          errorMessage = 'Please enter a valid phone number';
+        } else if (phoneDigits.length < 10) {
+          isValid = false;
+          errorMessage = `Please enter ${10 - phoneDigits.length} more digits`;
+        } else if (phoneDigits.length > 10) {
+          isValid = false;
+          errorMessage = 'Phone number should be exactly 10 digits';
+        }
+        // If phoneDigits.length === 10, isValid remains true (default)
+      }
+
+      // Name validation
+      if (field.id === 'cust_name') {
+        if (!value) {
+          isValid = false;
+          errorMessage = 'Name is required';
+        } else if (value.length < 2) {
+          isValid = false;
+          errorMessage = 'Name must be at least 2 characters';
+        }
+      }
+
+      // Description validation - check service type
+      if (field.id === 'cust_description') {
+        const serviceSelect = document.getElementById('cust_service');
+        const serviceType = serviceSelect ? serviceSelect.value : '';
+        
+        // Only validate if not Small Job and field has content
+        if (serviceType !== 'Small Job' && value && value.trim().length < 10) {
+          isValid = false;
+          errorMessage = 'Description must be at least 10 characters';
+        }
+        // For Small Jobs or empty fields, no validation needed
+      }
+
+      // Update UI
+      if (isValid) {
+        field.classList.remove('error');
+        errorElement.classList.remove('show');
+        errorElement.textContent = '';
+      } else {
+        field.classList.add('error');
+        errorElement.classList.add('show');
+        errorElement.textContent = errorMessage;
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

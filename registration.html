@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urbanta v0.4.10 - Registration</title>
+  <meta name="description" content="Join Urbanta as a contractor or supplier. Zero listing fee during launch, priority access, and fast payments.">
+  <link rel="canonical" href="https://urbanta.com/registration">
+  <meta name="theme-color" content="#0f1115">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Urbanta">
+  <meta property="og:title" content="Join Urbanta – Contractors & Suppliers">
+  <meta property="og:description" content="Register in minutes. Verified network, milestone payments, and growth tools.">
+  <meta property="og:url" content="https://urbanta.com/registration">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join Urbanta – Contractors & Suppliers">
+  <meta name="twitter:description" content="Register in minutes. Verified network, milestone payments, and growth tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+          <button id="backBtn" class="back-btn hidden" aria-label="Go back">←</button>
+          <div>
+            <a href="index.html" class="brand-name">Urbanta</a>
+            <div class="brand-tag">Building trust, one project at a time</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <div class="user-toggle">
+            <button class="toggle-btn" data-view="customer">Customer</button>
+            <button class="toggle-btn" data-view="home">
+              <span class="home-icon">⌂</span>
+            </button>
+            <button class="toggle-btn active" data-view="contractor">Professionals</button>
+          </div>
+          <div class="header-right">
+            <a href="support.html" class="btn secondary header-btn">Support</a>
+            <label class="switch" title="Toggle light mode">
+              <input type="checkbox" id="themeSwitch" />
+              <span class="knob"></span>
+            </label>
+            <span class="switch-label">Light mode</span>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <div class="brand-name">Urbanta</div>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+          <span>×</span>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="customer.html" class="mobile-menu-link">For Customers</a>
+        <a href="#contractor-registration" class="mobile-menu-link">Contractor Registration</a>
+        <a href="#supplier-registration" class="mobile-menu-link">Supplier Registration</a>
+        <a href="support.html" class="mobile-menu-link">Support</a>
+        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <div class="container">
+      <!-- Landing -->
+      <div id="landing">
+        <!-- Hero Section -->
+        <section class="hero" style="padding: var(--space-xl) 0;">
+          <div class="hero-content">
+            <h1 class="h1">Join Urbanta</h1>
+            <p class="p">Connect with verified contractors and suppliers. Build trust, grow your business, and transform the construction industry.</p>
+            
+            <div class="hero-stats" style="margin-top: var(--space-lg);">
+              <div class="stat">
+                <span class="stat-number">Early Access</span>
+                <span class="stat-label">Pilot Program</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Zero Fees</span>
+                <span class="stat-label">Launch Period</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Priority</span>
+                <span class="stat-label">Support & Features</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: var(--space-lg);">
+              <a href="#role-selection" class="btn primary hero-btn">Join Urbanta + Get <span style="color: #10b981; font-weight: 900;">₹500</span> Bonus</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Role Selection -->
+        <section id="role-selection" class="role-selection" style="padding: var(--space-lg) 0;">
+          <div class="center" style="margin-bottom: var(--space-lg);">
+            <h2 class="h2">Choose Your Path</h2>
+            <p class="p">Select your role to unlock exclusive benefits and start your journey with Urbanta</p>
+          </div>
+
+          <div class="promo-banner" style="margin-bottom: 2rem;">
+            <span class="pilot-badge">PILOT OFFER</span> 🎉 Earn ₹500: Complete this 5‑minute registration now.
+            <span class="small">Bonus released after you send your Aadhaar photo & 2–3 project photos on WhatsApp. Limited to first 1000 registrations.</span>
+            <div class="urgency-text">⚡ <strong>LIMITED OFFER!</strong> Only 847 spots left for ₹500 bonus!</div>
+          </div>
+
+        <div class="grid grid-2">
+          <div class="card role-btn" data-mode="contractor">
+            <div class="card-body">
+              <div class="card-head" style="border-bottom:none; padding:0; margin-bottom:1rem;">
+                <div class="icon-badge">👷</div>
+                <div class="h3" style="font-weight:700;">I am a Contractor / Pro</div>
+              </div>
+              <div class="muted">Get verified, receive quality leads, and grow your business with Urbanta.</div>
+
+              <div class="incentives" style="margin-top: 12px;">
+                <div class="incentive"><b>💰 Zero fees</b><div class="muted">No listing fee for 6 months + 0% commission on first 3 jobs</div></div>
+                <div class="incentive"><b>💸 Referral bonus</b><div class="muted"><span class="bonus">₹300</span> for each referral once they finish onboarding</div></div>
+                <div class="incentive"><b>💰 Completion bonus</b><div class="muted"><span class="bonus">₹1000</span> bonus for jobs worth <span class="bonus">₹10,000+</span></div></div>
+                <div class="incentive"><b>⚡ Quick payments</b><div class="muted">Get paid within 24 hours of project completion</div></div>
+              </div>
+<div class="benefits-cta"><button id="benefitsContractorBtn" class="btn primary" data-open="benefits-contractor">See Full Benefits</button></div>
+
+
+
+
+            </div>
+          </div>
+
+          <div class="card role-btn" data-mode="supplier">
+            <div class="card-body">
+              <div class="card-head" style="border-bottom:none; padding:0; margin-bottom:12px;">
+                <div class="icon-badge">📦</div>
+                <div class="h3" style="font-weight:700;">I am a Supplier</div>
+              </div>
+              <div class="muted">List your store, publish price lists, and sell to active contractors and homeowners.</div>
+
+              <div class="incentives" style="margin-top: 12px;">
+                <div class="incentive"><b>🆓 Free listing</b><div class="muted">No listing fee for 6 months - start selling immediately</div>
+          
+</div>
+
+                <div class="incentive"><b>📈 Sales boost</b><div class="muted">Get paid upfront for bulk orders - no waiting</div>
+</div>
+
+                <div class="incentive"><b>💰 Advance payments</b><div class="muted">Get paid upfront for bulk orders - no waiting</div>
+</div>
+
+                <div class="incentive"><b>🏆 Volume incentives</b><div class="muted"><span class="bonus">₹1000</span> bonus for every <span class="bonus">₹50,000</span> in sales</div>
+</div>
+
+
+        </div>
+<div class="benefits-cta"><button id="benefitsSupplierBtn" class="btn primary" data-open="benefits-supplier">See Full Benefits</button></div>
+
+
+      </div>
+
+    </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Contractor Form -->
+      <div id="contractor" class="hidden">
+        <div class="grid" style="gap:16px;">
+          <div class="card">
+            <div class="card-head">Contractor registration</div>
+
+            <div class="card-body">
+              <div class="muted" style="margin-bottom:8px;">Fields marked with * are required</div>
+              <div class="banner" style="margin-bottom:16px;"><b>📞 Referral reminder:</b> If someone referred you to Urbanta, please add their phone number in the "Referred by" field below.</div>
+
+              <form id="contractorForm" class="grid" style="gap:16px;">
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_fullName">Full name (as per Aadhaar) *</label>
+                    <input id="c_fullName" name="c_fullName" class="input" autocomplete="name" required />
+                    <div class="field-error" id="c_fullName_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_phone">Phone (WhatsApp) *</label>
+                    <input id="c_phone" name="c_phone" class="input" type="tel" maxlength="15" placeholder="10-digit" autocomplete="tel" required />
+                    <div class="field-error" id="c_phone_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_whatsapp">Alternate WhatsApp</label>
+                    <input id="c_whatsapp" name="c_whatsapp" class="input" type="tel" maxlength="15" placeholder="If different from phone" autocomplete="tel" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_city">City *</label>
+                    <select id="c_city" name="c_city" class="input" autocomplete="address-level2" required>
+                      <option value="">Select city…</option>
+                      <option>Bengaluru</option><option>Jaipur</option><option>Other (Launching soon in your city)</option>
+                    </select>
+                    <div class="field-error" id="c_city_error"></div>
+                  </div>
+
+                  <div id="c_cityOther" class="hidden">
+                    <label class="label" for="c_cityOtherInput">Please specify your city *</label>
+                    <input id="c_cityOtherInput" name="c_cityOtherInput" class="input" placeholder="Enter your city name" autocomplete="address-level2" />
+                  </div>
+
+                </div>
+
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_email">Email address</label>
+                    <input id="c_email" name="c_email" class="input" type="email" placeholder="name@example.com" autocomplete="email" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_aadhaar4">Aadhaar (last 4 digits) *</label>
+                    <input id="c_aadhaar4" name="c_aadhaar4" class="input" maxlength="4" pattern="\d{4}" placeholder="1234" autocomplete="off" required />
+                    <div class="field-error" id="c_aadhaar4_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_pan">PAN (optional)</label>
+                    <input id="c_pan" name="c_pan" class="input" placeholder="ABCDE1234F" autocomplete="off" />
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <div class="label">Skills *</div>
+
+                  <div id="c_skills" class="chips"></div>
+
+                  <div id="c_skillsOther" class="hidden" style="margin-top: 8px;">
+                    <label class="label" for="c_skillsOtherInput">Please specify your other skills *</label>
+                    <input id="c_skillsOtherInput" name="c_skillsOtherInput" class="input" placeholder="Enter skills separated by commas (e.g., Welding, Glass Installation, Custom Carpentry)" />
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <div class="label">Preferred job sizes</div>
+
+                  <div id="c_jobSizes" class="chips"></div>
+
+                </div>
+
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_expYears">Experience</label>
+                    <select id="c_expYears" name="c_expYears" class="input">
+                      <option value="">Select experience level</option>
+                      <option>Less than 1 year</option>
+                      <option>1-3 years</option>
+                      <option>3-5 years</option>
+                      <option>5-10 years</option>
+                      <option>10-15 years</option>
+                      <option>15+ years</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_availability">Availability</label>
+                    <select id="c_availability" name="c_availability" class="input">
+                      <option value="">Select availability</option>
+                      <option>Full-time</option>
+                      <option>Part-time</option>
+                      <option>Weekends only</option>
+                      <option>Evenings only</option>
+                      <option>Next 2 weeks</option>
+                      <option>Next month</option>
+                      <option>Flexible</option>
+                    </select>
+                  </div>
+
+                </div>
+
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_areas">Areas covered / localities</label>
+                    <input id="c_areas" name="c_areas" class="input" placeholder="e.g., Whitefield, Indiranagar, Koramangala" autocomplete="address-line1" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_teamSize">Team size</label>
+                    <select id="c_teamSize" name="c_teamSize" class="input">
+                      <option value="">Select team size</option>
+                      <option>Solo (just me)</option>
+                      <option>2-3 people</option>
+                      <option>4-6 people</option>
+                      <option>7-10 people</option>
+                      <option>10+ people</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_businessType">Business type</label>
+                    <select id="c_businessType" name="c_businessType" class="input">
+                      <option value="">Select business type</option>
+                      <option>Individual contractor</option>
+                      <option>Small business (2-5 people)</option>
+                      <option>Medium business (6-20 people)</option>
+                      <option>Large business (20+ people)</option>
+                      <option>Freelancer</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_referredBy">Referred by (Phone number)</label>
+                    <input id="c_referredBy" name="c_referredBy" class="input" type="tel" maxlength="15" placeholder="98xxxxxxx" autocomplete="tel" />
+                  </div>
+
+                </div>
+
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="c_discovery">How did you hear about Urbanta?</label>
+                    <input id="c_discovery" name="c_discovery" class="input" placeholder="Friend / Instagram / WhatsApp / Google" autocomplete="off" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="c_referralCode">Referral code (if any)</label>
+                    <input id="c_referralCode" name="c_referralCode" class="input" placeholder="URBANTA123" autocomplete="off" />
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <label class="label" for="c_notes">Notes</label>
+                  <textarea id="c_notes" name="c_notes" class="input" rows="3" placeholder="Any specifics or preferences"></textarea>
+                </div>
+
+
+                <div class="banner"><b>📸 WhatsApp reminder:</b> After submitting, please send your Aadhaar card photo, a selfie, and 2–3 recent project photos on WhatsApp. This is required to release your <span class="bonus">₹500 bonus</span>.</div>
+
+                <div class="banner contact-banner"><b>📞 Contact us:</b> Email: support@urbanta.com | WhatsApp: +91 98765 43210</div>
+
+                <div class="privacy-note">
+                  <small>By submitting this form, you agree to our <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted by Urbanta. We don't sell or share your data with any 3rd party.</small>
+                </div>
+
+                <div id="c_success" class="success hidden">
+                  <b>Thanks! Your details are submitted.</b>
+                  <div class="muted">Our team will verify and contact you on WhatsApp/phone.</div>
+
+                </div>
+
+
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <button id="c_submit" type="submit" class="btn primary">Submit</button>
+                  <div id="c_error" class="error"></div>
+
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+
+          <div class="card">
+            <div class="card-head">Launch incentives for contractors</div>
+
+            <div class="card-body">
+              <div class="incentives">
+                <div class="incentive"><b>🆓 Zero listing fee</b><div class="muted">First 6 months – no platform listing fee.</div>
+</div>
+
+                <div class="incentive"><b>💰 0% commission (launch offer)</b><div class="muted">First 3 completed jobs have 0% platform commission.</div>
+</div>
+
+                <div class="incentive"><b>💸 Referral bonus</b><div class="muted"><span class="bonus">₹300</span> for each referral once they finish onboarding</div></div>
+
+                <div class="incentive"><b>⭐ Priority leads</b><div class="muted">Top-rated pros get priority access to bigger projects.</div>
+</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Supplier Form (unchanged for now) -->
+      <div id="supplier" class="hidden">
+        <div class="grid" style="gap:16px;">
+          <div class="card">
+            <div class="card-head">Supplier registration</div>
+
+            <div class="card-body">
+              <div class="muted" style="margin-bottom:8px;">Fields marked with * are required</div>
+              <div class="banner" style="margin-bottom:16px;"><b>📞 Registration reminder:</b> Please ensure all required information is accurate for faster verification.</div>
+
+              <form id="supplierForm" class="grid" style="gap:16px;">
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="s_companyName">Company / Store name *</label>
+                    <input id="s_companyName" name="s_companyName" class="input" required />
+                    <div class="field-error" id="s_companyName_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_contactName">Contact person *</label>
+                    <input id="s_contactName" name="s_contactName" class="input" required />
+                    <div class="field-error" id="s_contactName_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_phone">Phone (WhatsApp) *</label>
+                    <input id="s_phone" name="s_phone" class="input" type="tel" maxlength="15" placeholder="10-digit" required />
+                    <div class="field-error" id="s_phone_error"></div>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_whatsapp">Alternate WhatsApp</label>
+                    <input id="s_whatsapp" name="s_whatsapp" class="input" type="tel" maxlength="15" placeholder="If different from phone" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_city">City *</label>
+                    <select id="s_city" name="s_city" class="input" required>
+                      <option value="">Select city…</option>
+                      <option>Bengaluru</option><option>Jaipur</option><option>Other (Launching soon in your city)</option>
+                    </select>
+                    <div class="field-error" id="s_city_error"></div>
+                  </div>
+
+                  <div id="s_cityOther" class="hidden">
+                    <label class="label" for="s_cityOtherInput">Please specify your city *</label>
+                    <input id="s_cityOtherInput" name="s_cityOtherInput" class="input" placeholder="Enter your city name" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_email">Email address</label>
+                    <input id="s_email" name="s_email" class="input" type="email" placeholder="name@example.com" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_address">Store/Company full address *</label>
+                    <textarea id="s_address" name="s_address" class="input" rows="3" placeholder="Complete address with landmark" required></textarea>
+                    <div class="field-error" id="s_address_error"></div>
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <div class="label">Product categories *</div>
+
+                  <div id="s_categories" class="chips"></div>
+
+                  <div id="s_categoriesOther" class="hidden" style="margin-top: 8px;">
+                    <label class="label" for="s_categoriesOtherInput">Please specify your other categories *</label>
+                    <input id="s_categoriesOtherInput" name="s_categoriesOtherInput" class="input" placeholder="Enter categories separated by commas (e.g., Custom Furniture, Specialty Tools, Imported Materials)" />
+                  </div>
+
+                </div>
+
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="s_deliveryRadiusKm">Delivery radius</label>
+                    <select id="s_deliveryRadiusKm" name="s_deliveryRadiusKm" class="input">
+                      <option value="">Select delivery radius</option>
+                      <option>Within 5 km</option>
+                      <option>Within 10 km</option>
+                      <option>Within 15 km</option>
+                      <option>Within 25 km</option>
+                      <option>Within 50 km</option>
+                      <option>City-wide</option>
+                      <option>State-wide</option>
+                      <option>All India</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_gst">GST (optional)</label>
+                    <input id="s_gst" name="s_gst" class="input" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_businessType">Business type</label>
+                    <select id="s_businessType" name="s_businessType" class="input">
+                      <option value="">Select business type</option>
+                      <option>Wholesaler</option>
+                      <option>Retailer</option>
+                      <option>Manufacturer</option>
+                      <option>Distributor</option>
+                      <option>Online store</option>
+                      <option>Physical store</option>
+                      <option>Both online & physical</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_yearsInBusiness">Years in business</label>
+                    <select id="s_yearsInBusiness" name="s_yearsInBusiness" class="input">
+                      <option value="">Select years in business</option>
+                      <option>Less than 1 year</option>
+                      <option>1-2 years</option>
+                      <option>2-5 years</option>
+                      <option>5-10 years</option>
+                      <option>10-15 years</option>
+                      <option>15-20 years</option>
+                      <option>20+ years</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="row row-2">
+                  <div>
+                    <label class="label" for="s_pricelistUrl">Price list / catalog URL</label>
+                    <input id="s_pricelistUrl" name="s_pricelistUrl" class="input" type="url" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_logistics">Logistics</label>
+                    <input id="s_logistics" name="s_logistics" class="input" placeholder="Own fleet / 3PL partner / Pickup only" />
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_creditTerms">Credit terms</label>
+                    <select id="s_creditTerms" name="s_creditTerms" class="input">
+                      <option value="">Select credit terms</option>
+                      <option>Cash on delivery (COD)</option>
+                      <option>Advance payment only</option>
+                      <option>7 days credit</option>
+                      <option>15 days credit</option>
+                      <option>30 days credit</option>
+                      <option>45 days credit</option>
+                      <option>60 days credit</option>
+                      <option>90 days credit</option>
+                      <option>No credit terms</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="label" for="s_minOrderValue">Minimum order value</label>
+                    <select id="s_minOrderValue" name="s_minOrderValue" class="input">
+                      <option value="">Select minimum order value</option>
+                      <option>No minimum</option>
+                      <option>₹1,000+</option>
+                      <option>₹2,500+</option>
+                      <option>₹5,000+</option>
+                      <option>₹10,000+</option>
+                      <option>₹25,000+</option>
+                      <option>₹50,000+</option>
+                      <option>₹1,00,000+</option>
+                    </select>
+                  </div>
+
+                </div>
+
+
+
+
+                <div>
+                  <label class="label" for="s_notes">Notes</label>
+                  <textarea id="s_notes" name="s_notes" class="input" rows="3" placeholder="Any specifics or MOQs, brand lines, etc."></textarea>
+                </div>
+
+
+                <div class="banner"><b>📸 WhatsApp reminder:</b> After submitting, please send your GSTIN/PAN document and price card/catalog on WhatsApp for faster verification.</div>
+
+                <div class="banner contact-banner"><b>📞 Contact us:</b> Email: support@urbanta.com | WhatsApp: +91 98765 43210</div>
+
+                <div class="privacy-note">
+                  <small>By submitting this form, you agree to our <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted by Urbanta. We don't sell or share your data with any 3rd party.</small>
+                </div>
+
+                <div id="s_success" class="success hidden">
+                  <b>Thanks! Your details are submitted.</b>
+                  <div class="muted">We will review and reach out to set you up as a preferred supplier.</div>
+
+                </div>
+
+
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <button id="s_submit" type="submit" class="btn primary">Submit</button>
+                  <div id="s_error" class="error"></div>
+
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+
+          <div class="card">
+            <div class="card-head">Launch incentives for suppliers</div>
+
+            <div class="card-body">
+              <div class="incentives">
+                <div class="incentive"><b>🆓 Free listing</b><div class="muted">No listing fee for 6 months - start selling immediately</div>
+</div>
+
+                <div class="incentive"><b>📈 Sales boost</b><div class="muted">Get 3x more orders through our contractor network</div>
+</div>
+
+                <div class="incentive"><b>💰 Advance payments</b><div class="muted">Get paid upfront for bulk orders - no waiting</div></div>
+
+                <div class="incentive"><b>🏆 Volume incentives</b><div class="muted"><span class="bonus">₹1000</span> bonus for every <span class="bonus">₹50,000</span> in sales</div>
+</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    
+      <!-- Benefits Modal -->
+      <div id="benefitsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="benefitsTitle">
+        <div class="modal-backdrop" data-close="modal"></div>
+
+        <div class="modal-card" role="document" tabindex="-1">
+          <div class="modal-head">
+            <div id="benefitsTitle" class="h3">Benefits</div>
+
+            <button class="close-btn" aria-label="Close" data-close="modal">✕</button>
+          </div>
+
+          <div id="benefitsBody" class="modal-body">
+            <div id="benefitsBanner" class="modal-banner">🎉 Here are all the benefits you unlock with Urbanta.</div>
+
+            <!-- filled by script.js -->
+          </div>
+
+          <div class="modal-foot">
+            <button class="btn" data-close="modal">Close</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-name">Urbanta</div>
+          <p class="footer-tagline">Building trust in construction</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Urbanta. All rights reserved. | v0.4.10</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <span>↑</span>
+  </button>
+
+  <!-- Callback Button -->
+  <button id="callbackBtn" class="callback-btn" aria-label="Request a callback">
+    📞
+  </button>
+
+  <!-- Callback Modal -->
+  <div id="callbackModal" class="modal hidden">
+    <div class="callback-modal">
+      <div class="modal-header">
+        <div class="callback-header-content">
+          <div class="callback-icon">📞</div>
+          <div>
+            <h2 class="callback-title">Request a Callback</h2>
+            <p>Get personalized assistance with your registration</p>
+          </div>
+        </div>
+        <button class="modal-close" id="callbackClose">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="callback-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">✅</span>
+            <span>Help with form completion</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">✅</span>
+            <span>Answer your questions</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">✅</span>
+            <span>Guide you through benefits</span>
+          </div>
+        </div>
+
+        <form id="callbackForm">
+          <div class="form-group">
+            <label for="callback_name">Your Name *</label>
+            <input type="text" id="callback_name" name="callback_name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="callback_phone">Phone Number *</label>
+            <input type="tel" id="callback_phone" name="callback_phone" placeholder="10-digit number" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="callback_service">Service Interest</label>
+            <select id="callback_service" name="callback_service">
+              <option value="">Select service</option>
+              <option value="Contractor Registration">Contractor Registration</option>
+              <option value="Supplier Registration">Supplier Registration</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="callback_message">Message (optional)</label>
+            <textarea id="callback_message" name="callback_message" rows="3" placeholder="Any specific questions or requirements..."></textarea>
+          </div>
+          
+          <div class="callback-urgency">
+            <label class="urgency-label disabled">
+              <input type="checkbox" id="callback_urgent" name="callback_urgent" disabled>
+              <span class="checkmark"></span>
+              <span class="urgency-text">
+                ASAP call <small>(Coming soon)</small>
+              </span>
+            </label>
+          </div>
+          
+          <button type="submit" class="callback-submit">
+            <span>📞</span>
+            Request Callback
+          </button>
+          
+          <div class="callback-guarantee">
+            <strong>We'll call you within 24 hours</strong><br>
+            Our team will help you complete your registration and answer any questions.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="supabase.min.js?v=1"></script>
+  <script src="supabase-config.js?v=2"></script>
+  <script src="script.js"></script>
+  <script>
+    // Handle hash navigation to scroll to specific forms
+    window.addEventListener('load', function() {
+      // Check if there's a hash in the URL
+      const hash = window.location.hash;
+      console.log('Page loaded, hash detected:', hash);
+      
+      // Also check localStorage as fallback
+      const scrollTo = localStorage.getItem('scrollTo');
+      console.log('localStorage scrollTo:', scrollTo);
+      
+      if (hash === '#contractor-form' || scrollTo === 'contractor') {
+        console.log('Looking for contractor form...');
+        setTimeout(() => {
+          const contractorForm = document.getElementById('contractorForm');
+          console.log('Contractor form element:', contractorForm);
+          if (contractorForm) {
+            // Scroll to the form
+            contractorForm.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+            console.log('Scrolled to contractor form');
+            // Clear localStorage
+            localStorage.removeItem('scrollTo');
+          } else {
+            console.error('Contractor form not found!');
+          }
+        }, 1500);
+      } else if (hash === '#supplier-form' || scrollTo === 'supplier') {
+        console.log('Looking for supplier form...');
+        setTimeout(() => {
+          const supplierForm = document.getElementById('supplierForm');
+          console.log('Supplier form element:', supplierForm);
+          if (supplierForm) {
+            // Scroll to the form
+            supplierForm.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+            console.log('Scrolled to supplier form');
+            // Clear localStorage
+            localStorage.removeItem('scrollTo');
+          } else {
+            console.error('Supplier form not found!');
+          }
+        }, 1500);
+      }
+    });
+  </script>
+  
+  <script>
+    // Navigation functionality for toggle buttons
+    document.addEventListener("DOMContentLoaded", function() {
+      // User Toggle Functionality
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent any default behavior
+          
+          // Remove active class from all buttons
+          toggleButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the view type
+          const viewType = this.getAttribute('data-view');
+          
+          // Navigate to appropriate page
+          if (viewType === 'customer') {
+            window.location.href = 'customer.html';
+          } else if (viewType === 'contractor') {
+            window.location.href = 'registration.html';
+          } else if (viewType === 'home') {
+            window.location.href = 'index.html';
+          }
+        });
+      });
+    });
+  </script>
+  <!-- Inline validation removed; handled centrally in script.js for consistency -->
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+## Urbanta Website Routing and Security
+
+# Default document
+DirectoryIndex index.html
+
+# Enable clean URLs
+RewriteEngine On
+
+# Pretty routes for key pages
+RewriteRule ^customer/?$ customer.html [L]
+RewriteRule ^registration/?$ registration.html [L]
+RewriteRule ^thank-you-customer/?$ thank-you-customer.html [L]
+RewriteRule ^thank-you/?$ thank-you.html [L]
+RewriteRule ^privacy/?$ privacy.html [L]
+RewriteRule ^terms/?$ terms.html [L]
+RewriteRule ^support/?$ support.html [L]
+
+# Fallback to index.html for any other requests (SPA-like)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.html [L]
+
+<IfModule mod_headers.c>
+  # Security headers
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+  # Content Security Policy (adjust domains as needed)
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://docs.google.com https://www.google.com; frame-ancestors 'self';"
+
+  # Caching: long cache for static assets, no-store for HTML
+  <FilesMatch "\.(css|js|svg|png|jpe?g|gif|webp|ico|woff2?|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # HSTS (only makes sense over HTTPS)
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  # Compression
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
