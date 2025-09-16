@@ -31,13 +31,10 @@ A modern web platform connecting customers with contractors and suppliers for ho
 
 ### Database (`supabase/`)
 - `supabase-config.js` - Database configuration & API calls
-- `supabase.js` - Supabase client library
-- `supabase.min.js` - Minified Supabase client
+- `supabase.min.js` - Minified Supabase client library
 - `supabase-schema.sql` - Main database schema
 - `update-callback-schema.sql` - Add callback_type column
 - `update-contractor-schema.sql` - Add contractor fields
-- `fix-rls-policies.sql` - Row Level Security policies
-- `SUPABASE_SETUP.md` - Database setup guide
 
 ### Configuration (Root)
 - `robots.txt` - SEO configuration

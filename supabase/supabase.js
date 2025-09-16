@@ -1,1 +1,0 @@
-Redirecting to /@supabase/supabase-js@2.57.4/dist/umd/supabase.js
