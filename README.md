@@ -4,39 +4,48 @@ A modern web platform connecting customers with contractors and suppliers for ho
 
 ## 🚀 Quick Start
 
-1. **Deploy files** to your web server
+1. **Deploy files** to your web server (all files in root directory)
 2. **Set up Supabase database** using `supabase-schema.sql`
 3. **Configure Supabase** in `supabase-config.js`
 4. **Update database** with `update-callback-schema.sql` and `update-contractor-schema.sql`
 
+## 🌐 Hosting Ready
+
+This project is structured for **universal hosting compatibility**:
+
+- ✅ **All files in root directory** - No subdirectories or complex paths
+- ✅ **Standard file references** - All CSS, JS, and assets use root paths
+- ✅ **No server configuration** - Works with any web hosting provider
+- ✅ **CDN friendly** - Easy to cache and distribute
+- ✅ **GitHub Pages ready** - Just enable Pages in repository settings
+- ✅ **Netlify/Vercel ready** - Connect repository for automatic deployment
+
 ## 📁 File Structure
 
-### Core Pages (`html/`)
+### Core Pages (Root Directory)
 - `index.html` - Landing page with service categories
 - `customer.html` - Customer quote request form
 - `registration.html` - Contractor/Supplier registration
 - `thank-you.html` - Success page (handles multiple types)
 
-### Legal & Support Pages (`html/`)
+### Legal & Support Pages (Root Directory)
 - `privacy.html` - Privacy policy
 - `terms.html` - Terms of service
 - `support.html` - Support/contact page
 - `faq.html` - Frequently asked questions
 
-### Styling (`css/`)
+### Styling & Scripts (Root Directory)
 - `styles.css` - Main stylesheet (responsive design)
-
-### JavaScript (`js/`)
 - `script.js` - Core JavaScript functionality
-
-### Database (`supabase/`)
 - `supabase-config.js` - Database configuration & API calls
 - `supabase.min.js` - Minified Supabase client library
+
+### Database Files (Root Directory)
 - `supabase-schema.sql` - Main database schema
 - `update-callback-schema.sql` - Add callback_type column
 - `update-contractor-schema.sql` - Add contractor fields
 
-### Configuration (Root)
+### Configuration Files (Root Directory)
 - `robots.txt` - SEO configuration
 - `.htaccess` - Apache server configuration
 - `README.md` - This documentation file
@@ -82,8 +91,8 @@ A modern web platform connecting customers with contractors and suppliers for ho
 
 ### Supabase Setup
 1. Create Supabase project
-2. Run `supabase/supabase-schema.sql`
-3. Update `supabase/supabase-config.js`:
+2. Run `supabase-schema.sql`
+3. Update `supabase-config.js`:
    ```javascript
    SUPABASE_CONFIG = {
      url: 'your-supabase-url',
