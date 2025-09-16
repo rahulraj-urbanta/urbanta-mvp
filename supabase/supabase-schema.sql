@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS contractors (
   availability VARCHAR(50),
   areas TEXT,
   email VARCHAR(255),
+  team_size VARCHAR(50),
+  business_type VARCHAR(50),
   aadhaar_last_4 VARCHAR(4),
   pan VARCHAR(10),
   discovery TEXT,
@@ -78,11 +80,12 @@ CREATE TABLE IF NOT EXISTS suppliers (
 -- Create callbacks table
 CREATE TABLE IF NOT EXISTS callbacks (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  phone VARCHAR(15) NOT NULL,
-  service VARCHAR(100),
-  message TEXT,
-  urgent BOOLEAN DEFAULT FALSE,
+  callback_name VARCHAR(255) NOT NULL,
+  callback_phone VARCHAR(15) NOT NULL,
+  callback_service VARCHAR(100),
+  callback_message TEXT,
+  callback_urgent BOOLEAN DEFAULT FALSE,
+  callback_type VARCHAR(20) DEFAULT 'customer',
   status VARCHAR(20) DEFAULT 'new',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
