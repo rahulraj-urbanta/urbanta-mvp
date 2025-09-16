@@ -1,37 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urbanta - Redirecting...</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #f5f5f5;
-        }
-        .redirect-message {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urbanta v0.4.10 - Find Trusted Contractors & Suppliers</title>
+  <meta name="description" content="Urbanta connects you with verified contractors and suppliers. Transparent pricing, milestone payments, quality assurance, and fast support.">
+  <link rel="canonical" href="https://urbanta.com/">
+  <meta name="theme-color" content="#0f1115">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Urbanta">
+  <meta property="og:title" content="Find Trusted Contractors & Suppliers | Urbanta">
+  <meta property="og:description" content="Verified pros, transparent pricing, milestone payments, and warranty-backed quality.">
+  <meta property="og:url" content="https://urbanta.com/">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find Trusted Contractors & Suppliers | Urbanta">
+  <meta name="twitter:description" content="Verified pros, transparent pricing, milestone payments, and warranty-backed quality.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Urbanta",
+    "url": "https://urbanta.com/",
+    "logo": "https://urbanta.com/urbanta-icon.svg",
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
-    <div class="redirect-message">
-        <h2>Redirecting to Urbanta...</h2>
-        <p>If you are not redirected automatically, <a href="html/index.html">click here</a>.</p>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-left">
+        <button id="backBtn" class="back-btn hidden" aria-label="Go back">←</button>
+        <div>
+            <a href="index.html" class="brand-name">Urbanta</a>
+          <div class="brand-tag">Building trust, one project at a time</div>
+        </div>
+        </div>
+        <div class="header-controls">
+          <div class="user-toggle">
+            <button class="toggle-btn" data-view="customer">Customer</button>
+            <button class="toggle-btn active" data-view="home">
+              <span class="home-icon">⌂</span>
+            </button>
+            <button class="toggle-btn" data-view="contractor">Professionals</button>
+          </div>
+          <div class="header-right">
+            <a href="support.html" class="btn secondary header-btn">Support</a>
+          <label class="switch" title="Toggle light mode">
+            <input type="checkbox" id="themeSwitch" />
+            <span class="knob"></span>
+          </label>
+          <span class="switch-label">Light mode</span>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <script>
-        // Redirect to the main page
-        window.location.replace('html/index.html');
-    </script>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <h3>Menu</h3>
+        <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <a href="customer.html" class="mobile-menu-link">For Customers</a>
+        <a href="registration.html" class="mobile-menu-link">For Professionals</a>
+        <a href="support.html" class="mobile-menu-link">Support</a>
+        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <div class="launching-badge">🚀 Launching Soon</div>
+            <div class="bonus-badge">⚡ ₹500 Welcome Bonus</div>
+            <div class="bonus-detail">For the first 1000 professionals who join</div>
+        </div>
+          <h1 class="hero-title">Find Trusted Contractors & Suppliers in Your City</h1>
+          <p class="hero-subtitle">Connect with verified professionals for your construction projects. Transparent pricing, quality assurance, and secure payments.</p>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">₹500</div>
+              <div class="stat-label">Welcome Bonus</div>
+</div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Support</div>
+</div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Verified</div>
+</div>
+</div>
+
+          <div class="hero-cta">
+            <div class="cta-options">
+              <div class="cta-option">
+                <span class="cta-for">For Customers</span>
+                <a href="customer.html" class="btn primary">Get Free Quote</a>
+                <span class="cta-desc">Find verified contractors</span>
+              </div>
+              <div class="cta-divider">or</div>
+              <div class="cta-option">
+                <span class="cta-for">For Professionals</span>
+                <a href="registration.html" class="btn primary">Join + Get <span class="bonus-highlight">₹500</span></a>
+                <span class="cta-desc">Grow your business</span>
+                <span class="bonus-limit">🔥 <span class="red-text">Only 847 spots left!</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="how-it-works">
+        <h2 class="section-title">How Urbanta Works</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Submit Your Project</h3>
+              <p>Tell us about your construction needs, timeline, and budget</p>
+      </div>
+    </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Get Matched</h3>
+              <p>We connect you with verified contractors and suppliers in your area</p>
+        </div>
+      </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Compare & Choose</h3>
+              <p>Review quotes, check credentials, and select the best professional</p>
+            </div>
+          </div>
+          <div class="process-arrow">→</div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Secure Payment</h3>
+              <p>Pay securely through our platform with quality assurance</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="features">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🏗️</div>
+            <h3>Verified Contractors</h3>
+            <p>Connect with trusted, verified construction professionals</p>
+      </div>
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Quality Suppliers</h3>
+            <p>Access reliable suppliers with competitive pricing</p>
+                  </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Fair Pricing</h3>
+            <p>Transparent pricing with no hidden fees</p>
+                  </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Secure Payments</h3>
+            <p>Safe and secure payment processing</p>
+                  </div>
+          <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3>Quality Assurance</h3>
+            <p>Built-in quality checks and project monitoring</p>
+                  </div>
+                </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="final-cta">
+        <div class="cta-container">
+          <h2 class="cta-title">Ready to Get Started?</h2>
+          <p class="cta-description">Join Urbanta today and be part of India's construction revolution.</p>
+          
+          <div class="cta-buttons">
+            <a href="customer.html" class="btn primary">Get Free Quote</a>
+            <a href="registration.html" class="btn secondary">Join as Professional</a>
+          </div>
+
+          <div class="cta-note">
+            <p><span class="blue-capsule">🚀 Launching soon</span> • 🎯 Early access available • 💎 Premium support included</p>
+            <p class="urgency-note">⚡ <strong>Limited Time:</strong> <span class="blue-capsule">₹500 bonus + early access for first 1000 professionals only!</span></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="brand-name">Urbanta</div>
+          <p class="footer-tagline">Building trust in construction</p>
+        </div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Urbanta. All rights reserved. | v0.4.10</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Consolidated functionality for landing page
+    document.addEventListener("DOMContentLoaded", function() {
+      // Theme Toggle Functionality
+      const themeSwitch = document.getElementById("themeSwitch");
+      if (themeSwitch) {
+        themeSwitch.addEventListener("change", function(e) {
+          const theme = e.target.checked ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          localStorage.setItem("urbanta_theme", theme);
+        });
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem("urbanta_theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        themeSwitch.checked = (savedTheme === "light");
+      }
+
+      // Mobile Menu Functionality
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      
+      if (hamburger && mobileMenu) {
+        // Open mobile menu
+        hamburger.addEventListener('click', function() {
+          mobileMenu.classList.add('active');
+          document.body.classList.add('menu-open');
+        });
+        
+        // Close mobile menu
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+        
+        // Close menu on scroll
+        window.addEventListener('scroll', function() {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      }
+
+      // User Toggle Functionality
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent any default behavior
+          
+          // Remove active class from all buttons
+          toggleButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get the view type
+          const viewType = this.getAttribute('data-view');
+          
+          // Navigate to appropriate page
+          if (viewType === 'customer') {
+            window.location.href = 'customer.html';
+          } else if (viewType === 'contractor') {
+            window.location.href = 'registration.html';
+          } else if (viewType === 'home') {
+            window.location.href = 'index.html';
+          }
+        });
+      });
+    });
+  </script>
+  <noscript>
+    <div class="banner">This site works best with JavaScript enabled. Basic content is still available.</div>
+  </noscript>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
