@@ -11,33 +11,38 @@ A modern web platform connecting customers with contractors and suppliers for ho
 
 ## 📁 File Structure
 
-### Core Pages
+### Core Pages (`html/`)
 - `index.html` - Landing page with service categories
 - `customer.html` - Customer quote request form
 - `registration.html` - Contractor/Supplier registration
 - `thank-you.html` - Success page (handles multiple types)
 
-### Legal & Support Pages
+### Legal & Support Pages (`html/`)
 - `privacy.html` - Privacy policy
 - `terms.html` - Terms of service
 - `support.html` - Support/contact page
 - `faq.html` - Frequently asked questions
 
-### Styling & Scripts
+### Styling (`css/`)
 - `styles.css` - Main stylesheet (responsive design)
+
+### JavaScript (`js/`)
 - `script.js` - Core JavaScript functionality
+
+### Database (`supabase/`)
 - `supabase-config.js` - Database configuration & API calls
 - `supabase.js` - Supabase client library
 - `supabase.min.js` - Minified Supabase client
-
-### Database
 - `supabase-schema.sql` - Main database schema
 - `update-callback-schema.sql` - Add callback_type column
 - `update-contractor-schema.sql` - Add contractor fields
+- `fix-rls-policies.sql` - Row Level Security policies
+- `SUPABASE_SETUP.md` - Database setup guide
 
-### Configuration
+### Configuration (Root)
 - `robots.txt` - SEO configuration
 - `.htaccess` - Apache server configuration
+- `README.md` - This documentation file
 
 ## 🔄 User Flow
 
@@ -80,8 +85,8 @@ A modern web platform connecting customers with contractors and suppliers for ho
 
 ### Supabase Setup
 1. Create Supabase project
-2. Run `supabase-schema.sql`
-3. Update `supabase-config.js`:
+2. Run `supabase/supabase-schema.sql`
+3. Update `supabase/supabase-config.js`:
    ```javascript
    SUPABASE_CONFIG = {
      url: 'your-supabase-url',
