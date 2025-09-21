@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Update sitemap URL if you add one
-# Sitemap: https://urbanta.com/sitemap.xml
+# Sitemap: https://www.urbanta.in/sitemap.xml
