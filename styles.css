@@ -388,6 +388,52 @@ header {
   border-color: rgba(139, 92, 246, 0.3);
 }
 
+/* Consultation badge styling */
+.consultation-badge {
+  background: rgba(250, 204, 21, 0.12);
+  color: var(--primary);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95em;
+  display: inline-block;
+  border: 1px solid rgba(250, 204, 21, 0.25);
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.15);
+}
+
+.consultation-badge:hover {
+  background: rgba(250, 204, 21, 0.18);
+  border-color: rgba(250, 204, 21, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.2);
+}
+
+/* Consultation stat highlighting */
+.consultation-stat {
+  background: rgba(250, 204, 21, 0.08);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.consultation-stat:hover {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.3);
+  transform: translateY(-1px);
+}
+
+.consultation-stat .stat-number {
+  color: var(--primary);
+  font-size: 1.6rem;
+}
+
+.consultation-stat .stat-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 /* Red text for urgency */
 .red-text {
   color: #ef4444;
@@ -1111,6 +1157,46 @@ header {
   line-height: 1.4;
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+/* Consultation Card Styles */
+.consultation-card {
+  background: var(--card);
+  border: 1px solid var(--primary);
+  position: relative;
+}
+
+.consultation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.consultation-card h3 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.consultation-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--primary-contrast);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: var(--space-xs);
+  transition: all 0.2s ease;
+}
+
+.consultation-btn:hover {
+  background: #fbbf24;
+  transform: translateY(-1px);
 }
 
 .coming-soon-feature {
@@ -3331,6 +3417,54 @@ html[data-theme="light"] .thank-card {
   color: var(--text);
 }
 html[data-theme="light"] .muted { color: #475569; } /* slate-600 */
+
+/* Light mode consultation card */
+html[data-theme="light"] .consultation-card {
+  background: #ffffff;
+  border-color: var(--primary);
+}
+
+html[data-theme="light"] .consultation-card h3 {
+  color: var(--primary);
+}
+
+html[data-theme="light"] .consultation-btn {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+html[data-theme="light"] .consultation-btn:hover {
+  background: #d97706;
+}
+
+/* Light mode consultation badge */
+html[data-theme="light"] .consultation-badge {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--primary);
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+}
+
+html[data-theme="light"] .consultation-badge:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+html[data-theme="light"] .consultation-stat {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+html[data-theme="light"] .consultation-stat:hover {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+html[data-theme="light"] .consultation-stat .stat-number,
+html[data-theme="light"] .consultation-stat .stat-label {
+  color: var(--primary);
+}
 
 
 html[data-theme="light"] .step-badge {
