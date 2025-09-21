@@ -24,6 +24,390 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Hero Navigation Links */
+    .hero-nav-link:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: white !important;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .hero-nav-link:hover .nav-icon {
+      transform: scale(1.1);
+    }
+    
+    /* Floating Service Navigation */
+    .floating-service-nav {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      min-width: 200px;
+    }
+    
+    .service-nav-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .service-nav-icon {
+      font-size: 18px;
+      animation: pulse 2s infinite;
+    }
+    
+    .service-nav-title {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 14px;
+    }
+    
+    .service-nav-toggle {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-nav-content {
+      padding: 8px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .service-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    
+    .service-nav-item:hover {
+      background: var(--accent);
+      transform: translateX(-4px);
+    }
+    
+    .service-nav-item:hover .service-nav-name {
+      color: white;
+    }
+    
+    .service-nav-item:hover .service-nav-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .service-nav-item:hover .service-nav-icon-small {
+      transform: scale(1.1);
+    }
+    
+    .service-nav-icon-small {
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+    
+    .service-nav-text {
+      flex: 1;
+    }
+    
+    .service-nav-name {
+      font-weight: 500;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.2;
+    }
+    
+    .service-nav-desc {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.2;
+    }
+    
+    .service-nav-indicator {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    .service-nav-item.active .service-nav-indicator {
+      opacity: 1;
+    }
+    
+    .service-nav-item.active {
+      background: var(--accent);
+    }
+    
+    .service-nav-item.active .service-nav-name {
+      color: white;
+    }
+    
+    .service-nav-item.active .service-nav-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Collapsed state */
+    .floating-service-nav.collapsed {
+      min-width: 60px;
+    }
+    
+    .floating-service-nav.collapsed .service-nav-content {
+      display: none;
+    }
+    
+    .floating-service-nav.collapsed .service-nav-title {
+      display: none;
+    }
+    
+    .floating-service-nav.collapsed .service-nav-toggle {
+      transform: rotate(180deg);
+    }
+    
+    /* Hide floating navigation on mobile - use hamburger menu instead */
+    @media (max-width: 768px) {
+      .floating-service-nav {
+        display: none !important;
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    /* Clean Mobile Menu Styles */
+    .mobile-menu-section {
+      margin-bottom: 20px;
+    }
+    
+    .mobile-menu-section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .mobile-menu-section-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 12px 0;
+      padding: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border: none;
+    }
+    
+    .mobile-menu-link.service-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      min-height: 60px;
+    }
+    
+    .mobile-menu-link.service-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    
+    .mobile-menu-link.service-link:hover .mobile-menu-name {
+      color: white;
+    }
+    
+    .mobile-menu-link.service-link:hover .mobile-menu-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Override for consultation link to ensure text is always visible */
+    .consultation-link .mobile-menu-name,
+    .consultation-link:hover .mobile-menu-name {
+      color: white !important;
+    }
+    
+    .consultation-link .mobile-menu-desc,
+    .consultation-link:hover .mobile-menu-desc {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    .mobile-menu-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .mobile-menu-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .mobile-menu-name {
+      display: block;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    
+    .mobile-menu-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+    
+    .consultation-link {
+      background: var(--bg) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+      text-decoration: none !important;
+    }
+    
+    .consultation-link .mobile-menu-icon {
+      background: var(--bg) !important;
+      border-color: var(--border) !important;
+    }
+    
+    .consultation-link .mobile-menu-name {
+      color: var(--text) !important;
+      font-weight: 500 !important;
+    }
+    
+    .consultation-link .mobile-menu-desc {
+      color: var(--muted) !important;
+    }
+    
+    .consultation-link:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      transform: translateX(4px);
+      color: white !important;
+      text-decoration: none !important;
+    }
+    
+    .consultation-link:hover .mobile-menu-name {
+      color: white !important;
+    }
+    
+    .consultation-link:hover .mobile-menu-desc {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    /* Regular mobile menu links */
+    .mobile-menu-link:not(.service-link) {
+      display: block;
+      padding: 10px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .mobile-menu-link:not(.service-link):hover {
+      background: var(--accent);
+      color: white;
+      transform: translateX(2px);
+    }
+    
+    /* Light mode specific styles */
+    [data-theme="light"] .mobile-menu-link.service-link {
+      background: #ffffff;
+      border-color: #e2e8f0;
+    }
+    
+    [data-theme="light"] .mobile-menu-link.service-link:hover {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+    }
+    
+    [data-theme="light"] .mobile-menu-icon {
+      background: #ffffff;
+      border-color: #e2e8f0;
+    }
+    
+    /* Consultation link now uses same styling as other service links */
+    
+    /* Mobile Menu Header */
+    .mobile-menu-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 16px 20px 12px 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    
+    .mobile-menu-header-content h3 {
+      margin: 0 0 2px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .mobile-menu-subtitle {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--text);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    
+    .mobile-menu-close:hover {
+      background: var(--accent);
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <!-- Floating Table of Contents -->
@@ -37,6 +421,7 @@
       <li><a href="#trust" class="toc-link">Why Choose Urbanta</a></li>
       <li><a href="#how-it-works" class="toc-link">How It Works?</a></li>
       <li><a href="#small-jobs" class="toc-link">Quick Fixes & Small Jobs</a></li>
+      <li><a href="#civil-repair-work" class="toc-link">Civil Repair Work</a></li>
       <li><a href="#request" class="toc-link">Request a Quote</a></li>
     </ul>
   </nav>
@@ -77,19 +462,101 @@
     </div>
   </header>
 
+  <!-- Floating Service Navigation -->
+  <div class="floating-service-nav" id="floatingServiceNav">
+    <div class="service-nav-header">
+      <div class="service-nav-icon">⚡</div>
+      <div class="service-nav-title">Services</div>
+      <button class="service-nav-toggle" id="serviceNavToggle">−</button>
+    </div>
+    <div class="service-nav-content" id="serviceNavContent">
+      <div class="service-nav-item" data-section="small-jobs">
+        <div class="service-nav-icon-small">🔧</div>
+        <div class="service-nav-text">
+          <div class="service-nav-name">Quick Fixes</div>
+          <div class="service-nav-desc">Small Jobs</div>
+        </div>
+        <div class="service-nav-indicator"></div>
+      </div>
+      <div class="service-nav-item" data-section="civil-repair-work">
+        <div class="service-nav-icon-small">🏗️</div>
+        <div class="service-nav-text">
+          <div class="service-nav-name">Civil Repair</div>
+          <div class="service-nav-desc">Major Work</div>
+        </div>
+        <div class="service-nav-indicator"></div>
+      </div>
+      <div class="service-nav-item" data-section="request">
+        <div class="service-nav-icon-small">📝</div>
+        <div class="service-nav-text">
+          <div class="service-nav-name">Get Quote</div>
+          <div class="service-nav-desc">20% Off</div>
+        </div>
+        <div class="service-nav-indicator"></div>
+      </div>
+      <div class="service-nav-item" data-section="consultation">
+        <div class="service-nav-icon-small">🏠</div>
+        <div class="service-nav-text">
+          <div class="service-nav-name">Free Consult</div>
+          <div class="service-nav-desc">Expert Advice</div>
+        </div>
+        <div class="service-nav-indicator"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-header">
-        <h3>Menu</h3>
+        <div class="mobile-menu-header-content">
+          <h3>Services & Navigation</h3>
+          <p class="mobile-menu-subtitle">Choose your service or navigate</p>
+        </div>
         <button class="mobile-menu-close" id="mobileMenuClose">×</button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="#request" class="mobile-menu-link">Get Quote</a>
-        <a href="index.html" class="mobile-menu-link">Home</a>
-        <a href="registration.html" class="mobile-menu-link">For Professionals</a>
-        <a href="support.html" class="mobile-menu-link">Support</a>
-        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+        <!-- Service Navigation Section -->
+        <div class="mobile-menu-section">
+          <h4 class="mobile-menu-section-title">Services</h4>
+          <a href="#small-jobs" class="mobile-menu-link service-link" data-section="small-jobs">
+            <span class="mobile-menu-icon">🔧</span>
+            <span class="mobile-menu-text">
+              <span class="mobile-menu-name">Quick Fixes</span>
+              <span class="mobile-menu-desc">Small jobs & repairs</span>
+            </span>
+          </a>
+          <a href="#civil-repair-work" class="mobile-menu-link service-link" data-section="civil-repair-work">
+            <span class="mobile-menu-icon">🏗️</span>
+            <span class="mobile-menu-text">
+              <span class="mobile-menu-name">Civil Repair</span>
+              <span class="mobile-menu-desc">Major construction work</span>
+            </span>
+          </a>
+          <a href="#request" class="mobile-menu-link service-link" data-section="request">
+            <span class="mobile-menu-icon">📝</span>
+            <span class="mobile-menu-text">
+              <span class="mobile-menu-name">Get Quote</span>
+              <span class="mobile-menu-desc">20% Off Launch Offer</span>
+            </span>
+          </a>
+          <a href="#" class="mobile-menu-link service-link consultation-link" data-section="consultation">
+            <span class="mobile-menu-icon">🏠</span>
+            <span class="mobile-menu-text">
+              <span class="mobile-menu-name">Free Consultation</span>
+              <span class="mobile-menu-desc">Expert advice</span>
+            </span>
+          </a>
+        </div>
+        
+        <!-- General Navigation Section -->
+        <div class="mobile-menu-section">
+          <h4 class="mobile-menu-section-title">Navigation</h4>
+          <a href="index.html" class="mobile-menu-link">Home</a>
+          <a href="registration.html" class="mobile-menu-link">For Professionals</a>
+          <a href="support.html" class="mobile-menu-link">Support</a>
+          <a href="faq.html" class="mobile-menu-link">FAQ</a>
+        </div>
       </nav>
     </div>
   </div>
@@ -118,15 +585,20 @@
             </div>
           </div>
           
-          <div style="margin-top: var(--space-lg);">
-            <a href="#request" class="btn primary hero-btn">Get Free Quote + <span style="color: #10b981; font-weight: 900;">40% Off*</span></a>
+          <div class="hero-actions" style="margin-top: var(--space-lg); display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center; justify-content: center;">
+            <a href="#request" class="btn primary hero-btn">Get Free Quote + <span style="color: #10b981; font-weight: 900;">20% Off*</span></a>
+            <button class="btn secondary hero-btn" id="heroConsultationBtn" style="display: flex; align-items: center; gap: var(--space-sm);">
+              <span class="btn-icon">🏠</span>
+              <span class="btn-text">Free Home Consultation</span>
+            </button>
           </div>
+          
         </div>
       </section>
 
       <!-- Launch Offer Banner -->
       <div id="launch-offer" class="promo-banner" style="margin-bottom: 2rem;">
-        <span class="pilot-badge">LAUNCH OFFER</span> 🎉 First 10,000 customers get up to 40% off*
+        <span class="pilot-badge">LAUNCH OFFER</span> 🎉 First 10,000 customers get up to 20% off*
         <span class="small">Quality contractors, milestone payments, and warranty protection. Limited time offer!</span>
         <div class="small" style="margin-top: 8px; font-size: 0.75rem; opacity: 0.8;">*Maximum discount of ₹5,000 per project</div>
         <div class="urgency-text">⚡ <strong>LIMITED TIME!</strong> Get your project started with trusted contractors!</div>
@@ -564,6 +1036,576 @@
         </div>
       </section>
 
+      <!-- Civil Repair Work Section -->
+      <section id="civil-repair-work" class="civil-repair-section">
+        <div class="container">
+          <h2 class="section-title">🏗️ Civil Repair Work</h2>
+          <p class="section-subtitle">Comprehensive construction and repair services for your home - <span class="price-highlight">quality guaranteed!</span></p>
+          
+          <div class="civil-work-grid" id="civilWorkGrid">
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🏗️</div>
+                <h3>Foundation & Structure</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Foundation repair and reinforcement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Foundation repair and reinforcement" data-category="Foundation & Structure">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Structural beam repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Structural beam repair" data-category="Foundation & Structure">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Column repair and reinforcement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Column repair and reinforcement" data-category="Foundation & Structure">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Load-bearing wall repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Load-bearing wall repair" data-category="Foundation & Structure">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Structural assessment and consultation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Structural assessment and consultation" data-category="Foundation & Structure">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🧱</div>
+                <h3>Wall & Roof Repair</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Wall crack repair and reinforcement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wall crack repair and reinforcement" data-category="Wall & Roof Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Roof repair and waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Roof repair and waterproofing" data-category="Wall & Roof Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Plastering and wall finishing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Plastering and wall finishing" data-category="Wall & Roof Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Ceiling repair and replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Ceiling repair and replacement" data-category="Wall & Roof Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wall reconstruction</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wall reconstruction" data-category="Wall & Roof Repair">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">💧</div>
+                <h3>Waterproofing</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Bathroom waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Bathroom waterproofing" data-category="Waterproofing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Terrace waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Terrace waterproofing" data-category="Waterproofing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Basement waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Basement waterproofing" data-category="Waterproofing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Balcony waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Balcony waterproofing" data-category="Waterproofing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">External wall waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="External wall waterproofing" data-category="Waterproofing">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🏠</div>
+                <h3>Flooring & Tiles</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Flooring repair and replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Flooring repair and replacement" data-category="Flooring & Tiles">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Tile installation and repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Tile installation and repair" data-category="Flooring & Tiles">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Marble work</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Marble work" data-category="Flooring & Tiles">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wooden flooring repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wooden flooring repair" data-category="Flooring & Tiles">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Epoxy flooring</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Epoxy flooring" data-category="Flooring & Tiles">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🚰</div>
+                <h3>Plumbing Repair</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Pipe repair and replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Pipe repair and replacement" data-category="Plumbing Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Drainage system repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Drainage system repair" data-category="Plumbing Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Septic tank repair and maintenance</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Septic tank repair and maintenance" data-category="Plumbing Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Water tank repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Water tank repair" data-category="Plumbing Repair">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Sewage line repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Sewage line repair" data-category="Plumbing Repair">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">⚡</div>
+                <h3>Electrical Work</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Electrical wiring and fixture repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Electrical wiring and fixture repair" data-category="Electrical Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">MCB and fuse box repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="MCB and fuse box repair" data-category="Electrical Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Electrical panel upgrade</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Electrical panel upgrade" data-category="Electrical Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Switch and socket repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Switch and socket repair" data-category="Electrical Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wiring replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wiring replacement" data-category="Electrical Work">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🎨</div>
+                <h3>Painting & Finishing</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Interior painting</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Interior painting" data-category="Painting & Finishing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Exterior painting</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Exterior painting" data-category="Painting & Finishing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wall putty and primer</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wall putty and primer" data-category="Painting & Finishing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Textured wall finish</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Textured wall finish" data-category="Painting & Finishing">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wooden surface painting</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wooden surface painting" data-category="Painting & Finishing">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🚪</div>
+                <h3>Doors & Windows</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Door and window frame repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Door and window frame repair" data-category="Doors & Windows">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Door and window replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Door and window replacement" data-category="Doors & Windows">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Hardware repair and replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Hardware repair and replacement" data-category="Doors & Windows">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Glass replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Glass replacement" data-category="Doors & Windows">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Weather stripping</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Weather stripping" data-category="Doors & Windows">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🛁</div>
+                <h3>Bathroom Renovation</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Complete bathroom renovation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Complete bathroom renovation" data-category="Bathroom Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Bathroom tiling</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Bathroom tiling" data-category="Bathroom Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Sanitaryware installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Sanitaryware installation" data-category="Bathroom Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Bathroom waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Bathroom waterproofing" data-category="Bathroom Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Bathroom plumbing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Bathroom plumbing" data-category="Bathroom Renovation">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🍳</div>
+                <h3>Kitchen Renovation</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Complete kitchen renovation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Complete kitchen renovation" data-category="Kitchen Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Kitchen cabinet installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Kitchen cabinet installation" data-category="Kitchen Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Kitchen tiling</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Kitchen tiling" data-category="Kitchen Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Kitchen plumbing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Kitchen plumbing" data-category="Kitchen Renovation">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Kitchen electrical work</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Kitchen electrical work" data-category="Kitchen Renovation">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🌿</div>
+                <h3>Balcony & Terrace</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Balcony repair and renovation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Balcony repair and renovation" data-category="Balcony & Terrace">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Terrace repair and waterproofing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Terrace repair and waterproofing" data-category="Balcony & Terrace">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Balcony railing repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Balcony railing repair" data-category="Balcony & Terrace">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Terrace tiling</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Terrace tiling" data-category="Balcony & Terrace">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Balcony flooring</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Balcony flooring" data-category="Balcony & Terrace">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🏘️</div>
+                <h3>Boundary & Compound</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Boundary wall construction/repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Boundary wall construction/repair" data-category="Boundary & Compound">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Compound wall repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Compound wall repair" data-category="Boundary & Compound">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Gate installation and repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Gate installation and repair" data-category="Boundary & Compound">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Driveway repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Driveway repair" data-category="Boundary & Compound">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Garden wall construction</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Garden wall construction" data-category="Boundary & Compound">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🏠</div>
+                <h3>Exterior Maintenance</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Siding repair and replacement</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Siding repair and replacement" data-category="Exterior Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Gutter maintenance and repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Gutter maintenance and repair" data-category="Exterior Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Deck and porch repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Deck and porch repair" data-category="Exterior Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Walkway repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Walkway repair" data-category="Exterior Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Exterior wall repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Exterior wall repair" data-category="Exterior Maintenance">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🧱</div>
+                <h3>Masonry & Concrete</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Chimney repair and maintenance</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Chimney repair and maintenance" data-category="Masonry & Concrete">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Brickwork repair and repointing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Brickwork repair and repointing" data-category="Masonry & Concrete">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Concrete repair and resurfacing</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Concrete repair and resurfacing" data-category="Masonry & Concrete">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Stucco repair and application</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Stucco repair and application" data-category="Masonry & Concrete">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Stone work repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Stone work repair" data-category="Masonry & Concrete">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🪵</div>
+                <h3>Carpentry & Woodwork</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Cabinet repair and installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Cabinet repair and installation" data-category="Carpentry & Woodwork">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Trim and molding repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Trim and molding repair" data-category="Carpentry & Woodwork">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Door repair and alignment</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Door repair and alignment" data-category="Carpentry & Woodwork">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Wooden flooring installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Wooden flooring installation" data-category="Carpentry & Woodwork">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Custom woodwork</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Custom woodwork" data-category="Carpentry & Woodwork">Quote</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🛡️</div>
+                <h3>Safety & Accessibility</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Handrail installation and repair</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Handrail installation and repair" data-category="Safety & Accessibility">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Ramp installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Ramp installation" data-category="Safety & Accessibility">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Safety barrier installation</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Safety barrier installation" data-category="Safety & Accessibility">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Emergency exit improvements</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Emergency exit improvements" data-category="Safety & Accessibility">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Accessibility modifications</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Accessibility modifications" data-category="Safety & Accessibility">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🔧</div>
+                <h3>General Maintenance</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Regular maintenance check</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Regular maintenance check" data-category="General Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Preventive maintenance</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Preventive maintenance" data-category="General Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Property inspection</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Property inspection" data-category="General Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Maintenance scheduling</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Maintenance scheduling" data-category="General Maintenance">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Other maintenance work</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Other maintenance work" data-category="General Maintenance">Quote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="civil-card">
+              <div class="civil-header">
+                <div class="civil-icon">🔧</div>
+                <h3>Other Civil Work</h3>
+              </div>
+              <div class="civil-services">
+                <div class="service-item">
+                  <span class="service-name">Custom civil repair work</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Custom civil repair work" data-category="Other Civil Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Specialized construction work</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Specialized construction work" data-category="Other Civil Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Unique repair requirements</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Unique repair requirements" data-category="Other Civil Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Consultation and assessment</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Consultation and assessment" data-category="Other Civil Work">Quote</span>
+                </div>
+                <div class="service-item">
+                  <span class="service-name">Not sure? Let us help</span>
+                  <span class="service-price clickable-quote" data-service="Civil Repair Work" data-specific="Not sure? Let us help" data-category="Other Civil Work">Quote</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="show-more-container">
+            <button id="showMoreBtn" class="btn secondary show-more-btn">
+              <span class="btn-text">Show More Services</span>
+              <span class="btn-icon">▼</span>
+            </button>
+          </div>
+
+          <!-- Free Home Consultation -->
+          <div class="consultation-banner">
+            <div class="consultation-content">
+              <div class="consultation-icon">🏠</div>
+              <div class="consultation-text">
+                <h3>Free Home Consultation</h3>
+                <p>Not sure what you need? Get a <strong>free professional assessment</strong> of your home's repair requirements.</p>
+                <div class="consultation-features">
+                  <span class="feature-item">✓ Expert evaluation</span>
+                  <span class="feature-item">✓ Detailed quote</span>
+                  <span class="feature-item">✓ No obligation</span>
+                </div>
+              </div>
+              <div class="consultation-action">
+                <button class="btn primary consultation-btn" id="consultationBtn">
+                  <span class="btn-text">Get Free Consultation</span>
+                  <span class="btn-icon">📞</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="civil-work-note">
+            <div class="note-icon">💡</div>
+            <div class="note-content">
+              <h4>Quality Assurance</h4>
+              <p>All our civil repair work comes with quality assurance and warranty. We use verified contractors with proper licenses and insurance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Ready to Request Section -->
       <section id="ready-to-request" class="ready-to-request">
         <div class="container">
@@ -587,6 +1629,7 @@
           </div>
         </div>
       </section>
+
 
       <!-- Request a Quote Form -->
       <section id="request" class="registration-section">
@@ -639,6 +1682,7 @@
                       <label class="label" for="cust_service">Service type *</label>
                       <select id="cust_service" name="cust_service" class="input" required>
                         <option value="">Choose a service</option>
+                        <option value="Civil Repair Work">Civil Repair Work</option>
                         <option value="Small Job">Small Job (fix/replace/install)</option>
                         <option value="Home Renovation">Home Renovation</option>
                         <option value="Interior Fit-out">Interior Fit-out</option>
@@ -655,6 +1699,85 @@
                   <div id="service_other_input" style="display: none;">
                     <label class="label" for="cust_service_other">Other Service Type *</label>
                     <input id="cust_service_other" class="input" placeholder="Describe your service type" />
+                  </div>
+
+                  <!-- Civil Repair Work Categories -->
+                  <div id="civil_repair_categories" style="display: none;">
+                    <label class="label">Civil Repair Work Categories</label>
+                    <div class="category-buttons">
+                      <button type="button" class="category-btn" data-category="Wall & Roof Repair">
+                        <span class="category-icon">🧱</span>
+                        <span class="category-name">Wall & Roof Repair</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Waterproofing">
+                        <span class="category-icon">💧</span>
+                        <span class="category-name">Waterproofing</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Flooring & Tiles">
+                        <span class="category-icon">🏠</span>
+                        <span class="category-name">Flooring & Tiles</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Plumbing Repair">
+                        <span class="category-icon">🚰</span>
+                        <span class="category-name">Plumbing Repair</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Electrical Work">
+                        <span class="category-icon">⚡</span>
+                        <span class="category-name">Electrical Work</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Painting & Finishing">
+                        <span class="category-icon">🎨</span>
+                        <span class="category-name">Painting & Finishing</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Doors & Windows">
+                        <span class="category-icon">🚪</span>
+                        <span class="category-name">Doors & Windows</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Bathroom Renovation">
+                        <span class="category-icon">🛁</span>
+                        <span class="category-name">Bathroom Renovation</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Kitchen Renovation">
+                        <span class="category-icon">🍳</span>
+                        <span class="category-name">Kitchen Renovation</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Balcony & Terrace">
+                        <span class="category-icon">🌿</span>
+                        <span class="category-name">Balcony & Terrace</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Boundary & Compound">
+                        <span class="category-icon">🏘️</span>
+                        <span class="category-name">Boundary & Compound</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Exterior Maintenance">
+                        <span class="category-icon">🏠</span>
+                        <span class="category-name">Exterior Maintenance</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Masonry & Concrete">
+                        <span class="category-icon">🧱</span>
+                        <span class="category-name">Masonry & Concrete</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Carpentry & Woodwork">
+                        <span class="category-icon">🪚</span>
+                        <span class="category-name">Carpentry & Woodwork</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Foundation & Structure">
+                        <span class="category-icon">🏗️</span>
+                        <span class="category-name">Foundation & Structure</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Safety & Accessibility">
+                        <span class="category-icon">♿</span>
+                        <span class="category-name">Safety & Accessibility</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="General Maintenance">
+                        <span class="category-icon">🔧</span>
+                        <span class="category-name">General Maintenance</span>
+                      </button>
+                      <button type="button" class="category-btn" data-category="Other Civil Work">
+                        <span class="category-icon">🔧</span>
+                        <span class="category-name">Other Civil Work</span>
+                      </button>
+                    </div>
                   </div>
 
                   <div id="small_job_categories" style="display: none;">
@@ -836,6 +1959,72 @@
     </div>
   </div>
 
+  <!-- Consultation Modal -->
+  <div id="consultationModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="consultationTitle">
+    <div class="modal-content callback-modal" tabindex="-1">
+      <div class="modal-header">
+        <div class="callback-header-content">
+          <div class="callback-icon">🏠</div>
+          <div class="callback-title">
+            <h3 id="consultationTitle">Free Home Consultation</h3>
+            <p>Get a professional assessment of your repair needs!</p>
+          </div>
+        </div>
+        <button class="modal-close" id="consultationClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="callback-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">🔍</span>
+            <span>Expert property assessment</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">📋</span>
+            <span>Detailed repair recommendations</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💰</span>
+            <span>Accurate cost estimates</span>
+          </div>
+        </div>
+        
+        <form id="consultationForm">
+          <div class="form-group">
+            <label for="consultation_name">Full Name *</label>
+            <input type="text" id="consultation_name" name="consultation_name" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="consultation_phone">Phone Number *</label>
+            <input type="tel" id="consultation_phone" name="consultation_phone" required placeholder="Enter your 10-digit phone number">
+          </div>
+          <div class="form-group">
+            <label for="consultation_address">Property Address</label>
+            <textarea id="consultation_address" name="consultation_address" rows="2" placeholder="Enter your property address (optional)"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="consultation_message">Repair Requirements</label>
+            <textarea id="consultation_message" name="consultation_message" rows="3" placeholder="Describe your repair needs or any specific concerns..."></textarea>
+          </div>
+          <div class="callback-urgency">
+            <label class="urgency-label">
+              <input type="checkbox" id="consultation_urgent" name="consultation_urgent">
+              <span class="checkmark"></span>
+              <span class="urgency-text">This is urgent - I need consultation within 24 hours</span>
+            </label>
+          </div>
+          <button type="submit" class="btn primary callback-submit">
+            <span class="btn-text">Request Free Consultation</span>
+            <span class="btn-icon">🏠</span>
+          </button>
+        </form>
+        
+        <div class="callback-guarantee">
+          <p>🔒 Your information is safe with us. We never share your details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -896,6 +2085,72 @@
           document.body.classList.remove('menu-open');
         }
       });
+      
+      // Handle service link clicks in mobile menu
+      const serviceLinks = document.querySelectorAll('.service-link');
+      const consultationLink = document.querySelector('.consultation-link');
+      
+      serviceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const section = this.getAttribute('data-section');
+          
+          // Close mobile menu
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          
+          // Handle different section types
+          if (section === 'consultation') {
+            e.preventDefault();
+            // Open consultation modal
+            const consultationModal = document.getElementById('consultationModal');
+            if (consultationModal) {
+              setTimeout(() => {
+                consultationModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                const mainHeader = document.querySelector('header');
+                if (mainHeader) {
+                  mainHeader.style.display = 'none';
+                }
+              }, 200);
+            }
+          } else {
+            // Scroll to section
+            const targetElement = document.getElementById(section);
+            if (targetElement) {
+              setTimeout(() => {
+                targetElement.scrollIntoView({ 
+                  behavior: 'smooth', 
+                  block: 'start' 
+                });
+              }, 100);
+            }
+          }
+        });
+      });
+      
+      // Handle consultation button specifically
+      if (consultationLink) {
+        consultationLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Close mobile menu
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          
+          // Open consultation modal
+          const consultationModal = document.getElementById('consultationModal');
+          if (consultationModal) {
+            setTimeout(() => {
+              consultationModal.classList.remove('hidden');
+              document.body.style.overflow = 'hidden';
+              const mainHeader = document.querySelector('header');
+              if (mainHeader) {
+                mainHeader.style.display = 'none';
+              }
+            }, 200);
+          }
+        });
+      }
       
       // Close menu on scroll
       window.addEventListener('scroll', function() {
@@ -1338,7 +2593,159 @@
         "Wall putty application",
         "Textured wall finish",
         "Other"
-      ]
+      ],
+      // Civil Repair Work Options
+      "Foundation & Structure": [
+        "Foundation repair and strengthening",
+        "Structural assessment and retrofitting",
+        "Beam and column repair",
+        "Load bearing wall repair",
+        "Structural crack repair",
+        "Other"
+      ],
+      "Foundation & Structure": [
+        "Foundation repair and reinforcement",
+        "Structural beam repair",
+        "Column repair and reinforcement",
+        "Load-bearing wall repair",
+        "Structural assessment and consultation",
+        "Other"
+      ],
+      "Wall & Roof Repair": [
+        "Wall crack repair and reinforcement",
+        "Roof repair and waterproofing",
+        "Plastering and wall finishing",
+        "Ceiling repair and replacement",
+        "Wall reconstruction",
+        "Other"
+      ],
+      "Waterproofing": [
+        "Bathroom waterproofing",
+        "Terrace waterproofing",
+        "Basement waterproofing",
+        "Balcony waterproofing",
+        "External wall waterproofing",
+        "Other"
+      ],
+      "Flooring & Tiles": [
+        "Flooring repair and replacement",
+        "Tile installation and repair",
+        "Marble work",
+        "Wooden flooring repair",
+        "Epoxy flooring",
+        "Other"
+      ],
+      "Plumbing Repair": [
+        "Pipe repair and replacement",
+        "Drainage system repair",
+        "Septic tank repair and maintenance",
+        "Water tank repair",
+        "Sewage line repair",
+        "Other"
+      ],
+      "Electrical Work": [
+        "Electrical wiring and fixture repair",
+        "MCB and fuse box repair",
+        "Switch and socket repair",
+        "Electrical panel upgrade",
+        "Wiring replacement",
+        "Other"
+      ],
+      "Painting & Finishing": [
+        "Interior painting",
+        "Exterior painting",
+        "Wall putty and primer",
+        "Textured wall finish",
+        "Wooden surface painting",
+        "Other"
+      ],
+      "Doors & Windows": [
+        "Door and window frame repair",
+        "Door and window replacement",
+        "Hardware repair and replacement",
+        "Glass replacement",
+        "Weather stripping",
+        "Other"
+      ],
+      "Bathroom Renovation": [
+        "Complete bathroom renovation",
+        "Bathroom tiling",
+        "Sanitaryware installation",
+        "Bathroom waterproofing",
+        "Bathroom plumbing",
+        "Other"
+      ],
+      "Kitchen Renovation": [
+        "Complete kitchen renovation",
+        "Kitchen cabinet installation",
+        "Kitchen tiling",
+        "Kitchen plumbing",
+        "Kitchen electrical work",
+        "Other"
+      ],
+      "Balcony & Terrace": [
+        "Balcony repair and renovation",
+        "Terrace repair and waterproofing",
+        "Balcony railing repair",
+        "Terrace tiling",
+        "Balcony flooring",
+        "Other"
+      ],
+      "Boundary & Compound": [
+        "Boundary wall construction/repair",
+        "Compound wall repair",
+        "Gate installation and repair",
+        "Driveway repair",
+        "Garden wall construction",
+        "Other"
+      ],
+      "Exterior Maintenance": [
+        "Siding repair and replacement",
+        "Gutter maintenance and repair",
+        "Deck and porch repair",
+        "Walkway repair",
+        "Exterior wall repair",
+        "Other"
+      ],
+      "Masonry & Concrete": [
+        "Chimney repair and maintenance",
+        "Brickwork repair and repointing",
+        "Concrete repair and resurfacing",
+        "Stucco repair and application",
+        "Stone work repair",
+        "Other"
+      ],
+      "Carpentry & Woodwork": [
+        "Cabinet repair and installation",
+        "Trim and molding repair",
+        "Door repair and alignment",
+        "Wooden flooring installation",
+        "Custom woodwork",
+        "Other"
+      ],
+      "Other Civil Work": [
+        "Custom civil repair work",
+        "Specialized construction work", 
+        "Unique repair requirements",
+        "Consultation and assessment",
+        "Not sure? Let us help",
+        "Other"
+      ],
+      "Consultation": [
+        "Free Home Consultation",
+        "Professional assessment",
+        "Detailed quote preparation",
+        "Repair planning consultation",
+        "Other"
+      ],
+      "General Maintenance": [
+        "Regular maintenance check",
+        "Preventive maintenance",
+        "Property inspection",
+        "Maintenance scheduling",
+        "Other maintenance work",
+        "Other"
+      ],
     };
 
     // Customer form handling
@@ -1383,6 +2790,23 @@
             }
             smallJobCategories.style.display = "block";
             specificServiceOptions.style.display = "none";
+            
+            // Don't make specific service required until a category is selected
+            if (specificServiceSelect) {
+              specificServiceSelect.required = false;
+            }
+          } else if (selectedService === "Civil Repair Work") {
+            // Make description required for civil repair work
+            descriptionField.required = true;
+            const descriptionRequired = document.getElementById('description_required');
+            if (descriptionRequired) {
+              descriptionRequired.textContent = '*';
+              descriptionRequired.style.color = 'var(--text)';
+            }
+            smallJobCategories.style.display = "none";
+            specificServiceOptions.style.display = "none";
+            const civilRepairCategories = document.getElementById('civil_repair_categories');
+            if (civilRepairCategories) civilRepairCategories.style.display = "block";
             
             // Don't make specific service required until a category is selected
             if (specificServiceSelect) {
@@ -1441,12 +2865,33 @@
       // Handle service type change
       if (serviceSelect) {
         serviceSelect.addEventListener("change", function() {
-          if (this.value === "Small Job") {
+          const selectedService = this.value;
+          const civilRepairDetails = document.getElementById('civil_repair_details');
+          const serviceOtherInput = document.getElementById('service_other_input');
+          
+          if (selectedService === "Small Job") {
             smallJobCategories.style.display = "block";
             specificServiceOptions.style.display = "none";
+            if (civilRepairDetails) civilRepairDetails.style.display = "none";
+            if (serviceOtherInput) serviceOtherInput.style.display = "none";
+          } else if (selectedService === "Civil Repair Work") {
+            smallJobCategories.style.display = "none";
+            specificServiceOptions.style.display = "none";
+            const civilRepairCategories = document.getElementById('civil_repair_categories');
+            if (civilRepairCategories) civilRepairCategories.style.display = "block";
+            if (serviceOtherInput) serviceOtherInput.style.display = "none";
+          } else if (selectedService === "Other") {
+            smallJobCategories.style.display = "none";
+            specificServiceOptions.style.display = "none";
+            const civilRepairCategories = document.getElementById('civil_repair_categories');
+            if (civilRepairCategories) civilRepairCategories.style.display = "none";
+            if (serviceOtherInput) serviceOtherInput.style.display = "block";
           } else {
             smallJobCategories.style.display = "none";
             specificServiceOptions.style.display = "none";
+            const civilRepairCategories = document.getElementById('civil_repair_categories');
+            if (civilRepairCategories) civilRepairCategories.style.display = "none";
+            if (serviceOtherInput) serviceOtherInput.style.display = "none";
           }
         });
       }
@@ -1795,6 +3240,314 @@
           
         }, 500);
       }
+    }
+
+    // Handle individual quote button clicks for auto-population
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('clickable-quote')) {
+        const service = e.target.getAttribute('data-service');
+        const specific = e.target.getAttribute('data-specific');
+        const category = e.target.getAttribute('data-category');
+        
+        console.log('Quote clicked:', { service, specific, category });
+        
+        // Scroll to form
+        const formSection = document.getElementById('request');
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: 'smooth' });
+          
+          // Auto-populate the form after a short delay
+          setTimeout(() => {
+            const serviceSelect = document.getElementById('cust_service');
+            const specificServiceSelect = document.getElementById('cust_specific_service');
+            const specificServiceOptions = document.getElementById('specific_service_options');
+            const civilRepairCategories = document.getElementById('civil_repair_categories');
+            const smallJobCategories = document.getElementById('small_job_categories');
+            
+            if (serviceSelect) {
+              serviceSelect.value = service;
+              
+              // Trigger change event to show relevant options
+              serviceSelect.dispatchEvent(new Event('change'));
+              
+              // If it's Civil Repair Work, show categories and select the specific category
+              if (service === 'Civil Repair Work' && civilRepairCategories) {
+                civilRepairCategories.style.display = 'block';
+                
+                // Find and click the matching category button
+                const categoryBtn = civilRepairCategories.querySelector(`[data-category="${category}"]`);
+                if (categoryBtn) {
+                  categoryBtn.click();
+                }
+              }
+              
+              // If it's Small Job, show small job categories
+              else if (service === 'Small Job' && smallJobCategories) {
+                smallJobCategories.style.display = 'block';
+                
+                // Find and click the matching category button
+                const categoryBtn = smallJobCategories.querySelector(`[data-category="${category}"]`);
+                if (categoryBtn) {
+                  categoryBtn.click();
+                }
+              }
+              
+              // For other services, populate specific service if available
+              else if (specificServiceSelect && specificServiceOptions) {
+                specificServiceOptions.style.display = 'block';
+                specificServiceSelect.value = specific;
+                specificServiceSelect.required = true;
+              }
+            }
+            
+            // Add a subtle highlight effect to the form
+            const form = document.getElementById('customerForm');
+            if (form) {
+              form.style.border = '2px solid var(--accent)';
+              form.style.borderRadius = '8px';
+              setTimeout(() => {
+                form.style.border = '';
+                form.style.borderRadius = '';
+              }, 2000);
+            }
+            
+          }, 500);
+        }
+      }
+    });
+
+
+    // Floating Service Navigation functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const serviceNav = document.getElementById('floatingServiceNav');
+      const serviceNavToggle = document.getElementById('serviceNavToggle');
+      const serviceNavContent = document.getElementById('serviceNavContent');
+      const serviceNavItems = document.querySelectorAll('.service-nav-item');
+
+      // Toggle service navigation
+      if (serviceNavToggle) {
+        serviceNavToggle.addEventListener('click', function() {
+          serviceNav.classList.toggle('collapsed');
+        });
+      }
+
+      // Handle service navigation clicks
+      serviceNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const section = this.getAttribute('data-section');
+          
+          // Remove active class from all items
+          serviceNavItems.forEach(navItem => {
+            navItem.classList.remove('active');
+          });
+          
+          // Add active class to clicked item
+          this.classList.add('active');
+          
+          // Handle different section types
+          if (section === 'consultation') {
+            // Open consultation modal
+            const consultationModal = document.getElementById('consultationModal');
+            if (consultationModal) {
+              consultationModal.classList.remove('hidden');
+              document.body.style.overflow = 'hidden';
+              const mainHeader = document.querySelector('header');
+              if (mainHeader) {
+                mainHeader.style.display = 'none';
+              }
+            }
+          } else {
+            // Scroll to section
+            const targetElement = document.getElementById(section);
+            if (targetElement) {
+              targetElement.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+              });
+            }
+          }
+        });
+      });
+
+      // Update active section based on scroll position
+      function updateActiveSection() {
+        const sections = ['small-jobs', 'civil-repair-work', 'request'];
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              currentSection = section;
+            }
+          }
+        });
+        
+        // Update active state
+        serviceNavItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('data-section') === currentSection) {
+            item.classList.add('active');
+          }
+        });
+      }
+
+      // Throttled scroll listener
+      let scrollTimeout;
+      window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(updateActiveSection, 100);
+      });
+
+      // Initial active section update
+      updateActiveSection();
+    });
+
+
+    // Consultation Modal functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const consultationBtn = document.getElementById('consultationBtn');
+      const heroConsultationBtn = document.getElementById('heroConsultationBtn');
+      const consultationModal = document.getElementById('consultationModal');
+      const consultationClose = document.getElementById('consultationClose');
+      const consultationForm = document.getElementById('consultationForm');
+
+      // Function to open consultation modal
+      function openConsultationModal() {
+        consultationModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        // Hide the main header when modal is open
+        const mainHeader = document.querySelector('header');
+        if (mainHeader) {
+          mainHeader.style.display = 'none';
+        }
+      }
+
+      // Function to close consultation modal
+      function closeConsultationModal() {
+        consultationModal.classList.add('hidden');
+        document.body.style.overflow = '';
+        // Show the main header when modal is closed
+        const mainHeader = document.querySelector('header');
+        if (mainHeader) {
+          mainHeader.style.display = '';
+        }
+      }
+
+      // Open consultation modal from civil repair section
+      if (consultationBtn) {
+        consultationBtn.addEventListener('click', openConsultationModal);
+      }
+
+      // Open consultation modal from hero section
+      if (heroConsultationBtn) {
+        heroConsultationBtn.addEventListener('click', openConsultationModal);
+      }
+
+      // Close consultation modal
+      if (consultationClose) {
+        consultationClose.addEventListener('click', closeConsultationModal);
+      }
+
+      // Close modal when clicking outside
+      if (consultationModal) {
+        consultationModal.addEventListener('click', function(e) {
+          if (e.target === consultationModal) {
+            closeConsultationModal();
+          }
+        });
+      }
+
+      // Handle consultation form submission
+      if (consultationForm) {
+        let isSubmitting = false;
+        consultationForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Prevent duplicate submissions
+          if (isSubmitting) {
+            console.log('Consultation form already submitting, ignoring duplicate submission');
+            return;
+          }
+          isSubmitting = true;
+          
+          const formData = new FormData(this);
+          const data = Object.fromEntries(formData.entries());
+
+          // Validate phone number (10 digits)
+          const phoneDigits = data.consultation_phone.replace(/\D/g, '');
+          if(!/^\d{10}$/.test(phoneDigits)){
+            alert('Please enter a valid 10-digit phone number.');
+            isSubmitting = false;
+            return;
+          }
+
+          // Prepare data for Supabase
+          const consultationData = {
+            callback_name: data.consultation_name,
+            callback_phone: data.consultation_phone,
+            callback_service: 'Free Home Consultation',
+            callback_message: `Property Address: ${data.consultation_address || 'Not provided'}\n\nRepair Requirements: ${data.consultation_message || 'Not specified'}`,
+            callback_urgent: data.consultation_urgent || false,
+            callback_type: 'consultation'
+          };
+
+          console.log('Consultation data:', consultationData);
+
+          try {
+            // Submit to Supabase
+            await submitCallbackToSupabase(consultationData);
+
+            // Use replace instead of href to avoid browser confirmation dialogs
+            window.location.replace('thank-you.html?type=callback');
+            
+          } catch (error) {
+            console.error('Error submitting consultation request:', error);
+            // Use replace instead of href to avoid browser confirmation dialogs
+            window.location.replace('thank-you.html?type=callback');
+          }
+        });
+      }
+    });
+
+    // Handle Show More/Less for Civil Repair Work
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const civilCards = document.querySelectorAll('.civil-card');
+    
+    if (showMoreBtn && civilCards.length > 9) {
+      // Hide cards beyond the first 9
+      civilCards.forEach((card, index) => {
+        if (index >= 9) {
+          card.classList.add('hidden');
+        }
+      });
+      
+      showMoreBtn.addEventListener('click', function() {
+        const isExpanded = this.classList.contains('expanded');
+        
+        if (isExpanded) {
+          // Collapse - hide cards beyond first 9
+          civilCards.forEach((card, index) => {
+            if (index >= 9) {
+              card.classList.add('hidden');
+            }
+          });
+          this.classList.remove('expanded');
+          this.querySelector('.btn-text').textContent = 'Show More Services';
+          this.querySelector('.btn-icon').textContent = '▼';
+        } else {
+          // Expand - show all cards
+          civilCards.forEach(card => {
+            card.classList.remove('hidden');
+          });
+          this.classList.add('expanded');
+          this.querySelector('.btn-text').textContent = 'Show Less Services';
+          this.querySelector('.btn-icon').textContent = '▲';
+        }
+      });
     }
 
     // Handle FAQ toggle
