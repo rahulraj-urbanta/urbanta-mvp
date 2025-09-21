@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Urbanta v0.4.10 - Find Trusted Contractors & Suppliers</title>
+  <title>Urbanta - Find Trusted Contractors & Suppliers</title>
   <meta name="description" content="Urbanta connects you with verified contractors and suppliers. Transparent pricing, milestone payments, quality assurance, and fast support.">
   <link rel="canonical" href="https://urbanta.com/">
   <meta name="theme-color" content="#0f1115">
@@ -43,7 +43,7 @@
         <div class="brand-left">
         <button id="backBtn" class="back-btn hidden" aria-label="Go back">←</button>
         <div>
-            <a href="index.html" class="brand-name">Urbanta</a>
+            <a href="/" class="brand-name">Urbanta</a>
           <div class="brand-tag">Building trust, one project at a time</div>
         </div>
         </div>
@@ -56,7 +56,7 @@
             <button class="toggle-btn" data-view="contractor">Professionals</button>
           </div>
           <div class="header-right">
-            <a href="support.html" class="btn secondary header-btn">Support</a>
+            <a href="support/" class="btn secondary header-btn">Support</a>
           <label class="switch" title="Toggle light mode">
             <input type="checkbox" id="themeSwitch" />
             <span class="knob"></span>
@@ -81,10 +81,10 @@
         <button class="mobile-menu-close" id="mobileMenuClose">×</button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="customer.html" class="mobile-menu-link">For Customers</a>
-        <a href="registration.html" class="mobile-menu-link">For Professionals</a>
-        <a href="support.html" class="mobile-menu-link">Support</a>
-        <a href="faq.html" class="mobile-menu-link">FAQ</a>
+        <a href="services/" class="mobile-menu-link">For Customers</a>
+        <a href="professionals/" class="mobile-menu-link">For Professionals</a>
+        <a href="support/" class="mobile-menu-link">Support</a>
+        <a href="faq/" class="mobile-menu-link">FAQ</a>
       </nav>
     </div>
   </div>
@@ -121,13 +121,13 @@
             <div class="cta-options">
               <div class="cta-option">
                 <span class="cta-for">For Customers</span>
-                <a href="customer.html" class="btn primary">Get Free Quote</a>
+                <a href="services/" class="btn primary">Get Free Quote</a>
                 <span class="cta-desc">Find verified contractors</span>
               </div>
               <div class="cta-divider">or</div>
               <div class="cta-option">
                 <span class="cta-for">For Professionals</span>
-                <a href="registration.html" class="btn primary">Join + Get <span class="bonus-highlight">₹500</span></a>
+                <a href="professionals/" class="btn primary">Join + Get <span class="bonus-highlight">₹500</span></a>
                 <span class="cta-desc">Grow your business</span>
                 <span class="bonus-limit">🔥 <span class="red-text">Only 847 spots left!</span></span>
               </div>
@@ -213,8 +213,8 @@
           <p class="cta-description">Join Urbanta today and be part of India's construction revolution.</p>
           
           <div class="cta-buttons">
-            <a href="customer.html" class="btn primary">Get Free Quote</a>
-            <a href="registration.html" class="btn secondary">Join as Professional</a>
+            <a href="services/" class="btn primary">Get Free Quote</a>
+            <a href="professionals/" class="btn secondary">Join as Professional</a>
           </div>
 
           <div class="cta-note">
@@ -234,14 +234,14 @@
           <p class="footer-tagline">Building trust in construction</p>
         </div>
         <div class="footer-links">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="support.html">Support</a>
-          <a href="faq.html">FAQ</a>
+          <a href="privacy/">Privacy</a>
+          <a href="terms/">Terms</a>
+          <a href="support/">Support</a>
+          <a href="faq/">FAQ</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Urbanta. All rights reserved. | v0.4.10</p>
+        <p>&copy; 2025 Urbanta. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -316,11 +316,11 @@
           
           // Navigate to appropriate page
           if (viewType === 'customer') {
-            window.location.href = 'customer.html';
+            window.location.href = 'services/';
           } else if (viewType === 'contractor') {
-            window.location.href = 'registration.html';
+            window.location.href = 'professionals/';
           } else if (viewType === 'home') {
-            window.location.href = 'index.html';
+            window.location.href = '/';
           }
         });
       });

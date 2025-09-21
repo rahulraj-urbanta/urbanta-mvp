@@ -24,8 +24,8 @@ This project is structured for **universal hosting compatibility**:
 
 ### Core Pages (Root Directory)
 - `index.html` - Landing page with service categories
-- `customer.html` - Customer quote request form
-- `registration.html` - Contractor/Supplier registration
+- `services/` - Customer quote request form
+- `professionals/` - Contractor/Supplier registration
 - `thank-you.html` - Success page (handles multiple types)
 
 ### Legal & Support Pages (Root Directory)
@@ -55,9 +55,9 @@ This project is structured for **universal hosting compatibility**:
 ### Customer Journey
 1. **Landing Page** (`index.html`)
    - Browse service categories
-   - Click "Get Quote" → `customer.html`
+   - Click "Get Quote" → `services/`
 
-2. **Quote Request** (`customer.html`)
+2. **Quote Request** (`services/`)
    - Fill out project details
    - Submit → `thank-you.html?type=customer`
    - Optional: Request callback → `thank-you.html?type=callback`
@@ -67,7 +67,7 @@ This project is structured for **universal hosting compatibility**:
    - Next steps information
 
 ### Professional Journey
-1. **Registration Page** (`registration.html`)
+1. **Registration Page** (`professionals/`)
    - Choose: Contractor or Supplier
    - Fill out profile details
    - Submit → `thank-you.html?role=contractor/supplier`
