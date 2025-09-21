@@ -3,6 +3,7 @@
 // Supabase configuration is now handled in supabase-config.js
 // This file now focuses on UI logic and form handling
 
+// Constants for form options
 const CONTRACTOR_SKILLS = [
   "Plumbing", "Electrical", "Painting", "Flooring/Tile", "Carpentry", "Masonry", 
   "Waterproofing", "False Ceiling", "Modular Kitchen", "Civil Contractor", 
@@ -27,6 +28,29 @@ const SUPPLIER_CATEGORIES = [
   "Sand & Aggregates", "Roofing Materials", "HVAC Equipment", "Waterproofing",
   "Fire Safety", "Security Systems", "Automation & Smart Home", "Landscaping",
   "Renovation Materials", "Others"
+];
+
+const SUPPLIER_ITEMS = [
+  "AC Units", "Adhesives", "Aggregates", "Aluminum Windows", "Bathroom Accessories",
+  "Bathroom Fixtures", "Blinds", "Bolts", "Bricks/Blocks", "Cabinets", "Carpet",
+  "Caulking", "CCTV Cameras", "Ceiling Fans", "Cement", "Ceramic Tiles", "Chairs",
+  "Concrete Blocks", "Countertops", "Crushed Stone", "Curtains", "Decorative Items",
+  "Decorative Stones", "Door Handles", "Door Locks", "Doors & Windows", "Downspouts",
+  "Electrical Wires", "Epoxy", "False Ceiling", "Fans", "Faucets", "Fencing",
+  "Fertilizers", "Fire Alarms", "Fire Extinguishers", "First Aid Kits", "Fittings",
+  "Flooring Materials", "Fountains", "Garden Tools", "Glass Panels", "Gloves",
+  "Granite Slabs", "Gravel", "Gutters", "Gypsum Boards", "Hand Tools", "Hardware",
+  "Hardwood", "Hinges", "Home Automation", "HVAC Equipment", "Insulation Foam",
+  "IoT Devices", "Kitchen Appliances", "Kitchen Sinks", "Laminate Flooring",
+  "Laminated Glass", "LED Lights", "Lighting", "Locks", "MDF", "Measuring Tools",
+  "Metal Work", "Mirrors", "Outdoor Furniture", "Paints", "Plywood", "POP",
+  "Portland Cement", "Power Tools", "Primers", "PVC Pipes", "Putty", "Rugs",
+  "Safety Equipment", "Safety Glasses", "Safety Helmets", "Safety Shoes", "Sand",
+  "Sanitaryware", "Screws", "Sealants", "Shower Curtains", "Showers", "Smart Locks",
+  "Smart Switches", "Smoke Detectors", "Softwood", "Soil", "Steel Doors", "Steel Rods",
+  "Switches & Sockets", "Taps", "Tempered Glass", "Tiles", "Toilets", "Towels",
+  "UPVC Windows", "Varnish", "Ventilation", "Vinyl Flooring", "Wallpapers",
+  "Washbasins", "Waterproofing", "Wood Polish", "Wooden Doors", "Others"
 ];
 
 // Benefits copy with pilot vs launch indicators - Reorganized with pilot first, money benefits at top
@@ -159,8 +183,212 @@ function setupCityOther(citySelect, otherDiv, otherInput) {
   });
 }
 
+// Setup searchable items for supplier
+function setupSupplierItemBrands() {
+  console.log('Setting up supplier searchable items...');
+  const searchInput = qs("#s_items_search");
+  const dropdown = qs("#s_items_dropdown");
+  const selectedContainer = qs("#s_selected_items");
+  const brandsContainer = qs("#s_itemBrands");
+  const brandInputsContainer = qs("#s_brandInputs");
+  
+  console.log('Containers found:', { searchInput, dropdown, selectedContainer, brandsContainer, brandInputsContainer });
+  
+  if (!searchInput || !dropdown || !selectedContainer || !brandsContainer || !brandInputsContainer) {
+    console.log('Missing containers, returning early');
+    return;
+  }
+  
+  let selectedItems = [];
+  let filteredItems = [];
+  
+  // Search functionality
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query.length === 0) {
+      dropdown.classList.add('hidden');
+      return;
+    }
+    
+    // Filter items based on search query
+    filteredItems = SUPPLIER_ITEMS.filter(item => 
+      item.toLowerCase().includes(query) && !selectedItems.includes(item)
+    );
+    
+    if (filteredItems.length === 0) {
+      dropdown.classList.add('hidden');
+      return;
+    }
+    
+    // Show dropdown with filtered results
+    dropdown.innerHTML = '';
+    filteredItems.forEach(item => {
+      const option = document.createElement('div');
+      option.className = 'dropdown-option';
+      option.style.padding = '8px 12px';
+      option.style.cursor = 'pointer';
+      option.style.borderBottom = '1px solid #eee';
+      option.textContent = item;
+      
+      option.addEventListener('click', () => {
+        selectItem(item);
+        searchInput.value = '';
+        dropdown.classList.add('hidden');
+      });
+      
+      dropdown.appendChild(option);
+    });
+    
+    dropdown.classList.remove('hidden');
+  });
+  
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+  
+  // Select item function
+  function selectItem(item) {
+    if (selectedItems.includes(item)) return;
+    
+    selectedItems.push(item);
+    updateSelectedDisplay();
+    updateBrandInputs();
+    
+    // Handle "Others" selection
+    if (item === 'Others') {
+      const othersDiv = qs("#s_itemsOther");
+      const othersInput = qs("#s_itemsOtherInput");
+      if (othersDiv && othersInput) {
+        othersDiv.classList.remove("hidden");
+        othersInput.required = true;
+      }
+    }
+  }
+  
+  // Remove item function
+  function removeItem(item) {
+    selectedItems = selectedItems.filter(i => i !== item);
+    updateSelectedDisplay();
+    updateBrandInputs();
+    
+    // Handle "Others" removal
+    if (item === 'Others') {
+      const othersDiv = qs("#s_itemsOther");
+      const othersInput = qs("#s_itemsOtherInput");
+      if (othersDiv && othersInput) {
+        othersDiv.classList.add("hidden");
+        othersInput.required = false;
+        othersInput.value = "";
+      }
+    }
+  }
+  
+  // Update selected items display
+  function updateSelectedDisplay() {
+    selectedContainer.innerHTML = '';
+    
+    if (selectedItems.length === 0) {
+      selectedContainer.innerHTML = '<div class="muted" style="padding: 8px; text-align: center; color: #666;">No items selected yet</div>';
+      return;
+    }
+    
+    selectedItems.forEach(item => {
+      const chip = document.createElement('div');
+      chip.className = 'chip selected';
+      chip.style.display = 'inline-flex';
+      chip.style.alignItems = 'center';
+      chip.style.gap = '6px';
+      chip.style.margin = '2px';
+      chip.style.padding = '4px 8px';
+      chip.style.backgroundColor = '#e3f2fd';
+      chip.style.border = '1px solid #2196f3';
+      chip.style.borderRadius = '16px';
+      chip.style.fontSize = '14px';
+      
+      chip.innerHTML = `
+        <span>${item}</span>
+        <button type="button" onclick="removeItem('${item}')" style="background: none; border: none; cursor: pointer; color: #2196f3; font-weight: bold; padding: 0; margin-left: 4px;">×</button>
+      `;
+      
+      selectedContainer.appendChild(chip);
+    });
+  }
+  
+  // Update brand inputs
+  function updateBrandInputs() {
+    console.log('updateBrandInputs called');
+    
+    // Clear existing brand inputs
+    brandInputsContainer.innerHTML = '';
+    
+    if (selectedItems.length === 0) {
+      console.log('No items selected, hiding brands container');
+      brandsContainer.classList.add('hidden');
+      return;
+    }
+    
+    console.log('Showing brands container and creating inputs');
+    // Show brands container
+    brandsContainer.classList.remove('hidden');
+    
+    // Create brand input for each selected item
+    selectedItems.forEach((item, index) => {
+      const brandDiv = document.createElement('div');
+      brandDiv.style.marginBottom = '12px';
+      
+      brandDiv.innerHTML = `
+        <label class="label" for="s_brand_${index}">${item} - Brands/Models</label>
+        <input id="s_brand_${index}" name="s_brand_${index}" class="input" 
+               placeholder="e.g., Ultratech, Ambuja, ACC (for Cement) or specify models" 
+               data-item="${item}" />
+      `;
+      
+      brandInputsContainer.appendChild(brandDiv);
+    });
+  }
+  
+  // Make functions globally accessible
+  window.removeItem = removeItem;
+  window.selectedItems = selectedItems;
+}
+
+// Collect brand data from dynamic inputs
+function collectItemBrands() {
+  const brandInputs = document.querySelectorAll('#s_brandInputs input[data-item]');
+  const brandData = {};
+  
+  brandInputs.forEach(input => {
+    const item = input.getAttribute('data-item');
+    const brand = input.value.trim();
+    if (brand) {
+      brandData[item] = brand;
+    }
+  });
+  
+  return JSON.stringify(brandData);
+}
+
+// Get selected items from searchable system
+function getSelectedItems() {
+  // Get selected items from the global variable
+  const selectedItems = window.selectedItems || [];
+  
+  const othersInput = qs("#s_itemsOtherInput");
+  const othersValue = othersInput ? othersInput.value.trim() : "";
+  
+  return selectedItems.join(", ") + (othersValue ? ", " + othersValue : "");
+}
+
 // Chips
 function buildChips(container, items){
+  if (!container) {
+    console.warn('buildChips: container element not found');
+    return;
+  }
   container.innerHTML = "";
   items.forEach((name) => {
     const btn = document.createElement("button");
@@ -182,7 +410,7 @@ function selectedChips(container){
 
 function redirectToThankYou(role){
   setTimeout(() => {
-    window.location.href = `thank-you.html?role=${encodeURIComponent(role)}`;
+    window.location.href = `/thank-you/?role=${encodeURIComponent(role)}`;
   }, 300);
 }
 
@@ -361,6 +589,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Setup supplier categories "Others" functionality
   setupSkillsOther(qs("#s_categories"), qs("#s_categoriesOther"), qs("#s_categoriesOtherInput"));
 
+  // Setup dynamic brand inputs for supplier items
+  setupSupplierItemBrands();
+
   // Normalize incentive tile heights across both cards
   equalizeTiles();
   window.addEventListener("resize", () => { equalizeTiles(); });
@@ -420,10 +651,16 @@ document.addEventListener("DOMContentLoaded", () => {
       referralCode: qs("#c_referralCode").value.trim(),
       referredBy: qs("#c_referredBy").value.trim(),
       notes: qs("#c_notes").value.trim(),
+      ref1Name: qs("#c_ref1_name").value.trim(),
+      ref1Phone: qs("#c_ref1_phone").value.trim(),
+      ref1Work: qs("#c_ref1_work").value.trim(),
+      ref2Name: qs("#c_ref2_name").value.trim(),
+      ref2Phone: qs("#c_ref2_phone").value.trim(),
+      ref2Work: qs("#c_ref2_work").value.trim(),
     };
 
-    if(!data.fullName || !data.phone || !data.city || !data.skills || !/^\d{4}$/.test(data.aadhaarLast4)){
-      err.textContent = "Please fill required fields and add Aadhaar last 4 digits.";
+    if(!data.fullName || !data.phone || !data.city || !data.skills || !data.expYears || !data.availability || !data.areas || !data.teamSize || !/^\d{4}$/.test(data.aadhaarLast4)){
+      err.textContent = "Please fill all required fields including experience, availability, areas covered, team size, and Aadhaar last 4 digits.";
       return;
     }
 
@@ -453,6 +690,9 @@ document.addEventListener("DOMContentLoaded", () => {
       email: qs("#s_email").value.trim(),
       address: qs("#s_address").value.trim(),
       categories: selectedChips(qs("#s_categories")).join(", ") + (qs("#s_categoriesOtherInput").value.trim() ? ", " + qs("#s_categoriesOtherInput").value.trim() : ""),
+      items: getSelectedItems(),
+      itemBrands: collectItemBrands(),
+      additionalItems: qs("#s_additionalItems").value.trim(),
       deliveryRadiusKm: qs("#s_deliveryRadiusKm").value,
       gst: qs("#s_gst").value.trim(),
       pricelistUrl: qs("#s_pricelistUrl").value.trim(),
@@ -464,8 +704,8 @@ document.addEventListener("DOMContentLoaded", () => {
       notes: qs("#s_notes").value.trim(),
     };
 
-    if(!data.companyName || !data.contactName || !data.phone || !data.city || !data.address || !data.categories){
-      err.textContent = "Please fill required fields and select at least one category.";
+    if(!data.companyName || !data.contactName || !data.phone || !data.city || !data.address || !data.categories || !data.items){
+      err.textContent = "Please fill required fields and select at least one category and one item.";
       return;
     }
 
@@ -564,13 +804,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Handle form submission (only on registration page)
-  if (callbackForm && window.location.pathname.includes('registration')) {
+  // Handle form submission (only on professionals page)
+  if (callbackForm && window.location.pathname.includes('professionals')) {
     callbackForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
+      console.log('Callback form submitted');
+      
       const formData = new FormData(callbackForm);
       const data = Object.fromEntries(formData);
+      
+      console.log('Callback form data:', data);
       
       // Validate phone number
       const phoneDigits = data.callback_phone.replace(/\D/g, '');
@@ -585,17 +829,22 @@ document.addEventListener('DOMContentLoaded', function() {
         callback_type: 'professional'
       };
 
+      console.log('Callback data to submit:', callbackData);
+
       try {
         // Submit to Supabase
-        await submitCallbackToSupabase(callbackData);
+        console.log('Submitting to Supabase...');
+        const result = await submitCallbackToSupabase(callbackData);
+        console.log('Supabase submission result:', result);
         
         // Redirect to thank you page
-        window.location.replace('thank-you.html?type=callback');
+        window.location.replace('/thank-you/?type=callback');
         
       } catch (error) {
         console.error('Callback submission error:', error);
+        alert('Error submitting callback: ' + error.message);
         // Still redirect to thank you page even if there's an error
-        window.location.replace('thank-you.html?type=callback');
+        window.location.replace('/thank-you/?type=callback');
       }
     });
   }

@@ -107,7 +107,7 @@ CREATE INDEX IF NOT EXISTS idx_suppliers_city ON suppliers(city);
 CREATE INDEX IF NOT EXISTS idx_suppliers_status ON suppliers(status);
 CREATE INDEX IF NOT EXISTS idx_suppliers_created_at ON suppliers(created_at);
 
-CREATE INDEX IF NOT EXISTS idx_callbacks_phone ON callbacks(phone);
+CREATE INDEX IF NOT EXISTS idx_callbacks_phone ON callbacks(callback_phone);
 CREATE INDEX IF NOT EXISTS idx_callbacks_status ON callbacks(status);
 CREATE INDEX IF NOT EXISTS idx_callbacks_created_at ON callbacks(created_at);
 

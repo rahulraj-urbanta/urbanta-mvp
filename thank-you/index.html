@@ -64,7 +64,7 @@
       desc.textContent = "We've received your details. Our team will call you back within 24 hours.";
     } else if(role === "contractor"){
       title.textContent = "Thanks for joining as a Contractor";
-      desc.textContent = "We've received your details. We'll verify your profile and reach out on WhatsApp. Please send your Aadhaar photo, a selfie, and 2–3 recent project photos on WhatsApp.";
+      desc.innerHTML = "We've received your details. We'll verify your profile and reach out on WhatsApp. Please send your Aadhaar photo, a selfie, and 2–3 recent project photos on WhatsApp. Once we verify your details, we'll release your <span style='color: #10b981; font-weight: bold; font-size: 1.1em;'>₹500 bonus</span>.";
     } else if(role === "supplier"){
       title.textContent = "Thanks for joining as a Supplier";
       desc.textContent = "We've received your details. We'll review your listing and contact you on WhatsApp. Please send your Aadhaar photo, GSTIN/PAN document, and price card/catalog on WhatsApp.";
@@ -74,32 +74,25 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       applyThemeFromStorage();
-      const themeBtn = document.getElementById("themeToggle");
-      themeBtn && themeBtn.addEventListener("click", toggleTheme);
+      const themeBtn = document.getElementById("themeSwitch");
+      themeBtn && themeBtn.addEventListener("change", (e) => setTheme(e.target.checked ? "light" : "dark"));
     });
   </script>
 
 
 <script>
-  (function(){
-    function applyThemeFromStorage(){
-      const saved = localStorage.getItem("urbanta_theme") || "light";
-      document.documentElement.setAttribute("data-theme", saved);
-      const sw = document.getElementById("themeSwitch");
-      if(sw){ sw.checked = (saved === "light"); }
-    }
-    function setTheme(mode){
-      document.documentElement.setAttribute("data-theme", mode);
-      localStorage.setItem("urbanta_theme", mode);
-      const sw = document.getElementById("themeSwitch");
-      if(sw){ sw.checked = (mode === "light"); }
-    }
-    document.addEventListener("DOMContentLoaded", () => {
-      applyThemeFromStorage();
-      const sw = document.getElementById("themeSwitch");
-      if(sw){ sw.addEventListener("change", (e)=> setTheme(e.target.checked ? "light" : "dark")); }
-    });
-  })();
+  function applyThemeFromStorage(){
+    const saved = localStorage.getItem("urbanta_theme") || "light";
+    document.documentElement.setAttribute("data-theme", saved);
+    const sw = document.getElementById("themeSwitch");
+    if(sw){ sw.checked = (saved === "light"); }
+  }
+  function setTheme(mode){
+    document.documentElement.setAttribute("data-theme", mode);
+    localStorage.setItem("urbanta_theme", mode);
+    const sw = document.getElementById("themeSwitch");
+    if(sw){ sw.checked = (mode === "light"); }
+  }
 </script>
 
 </body>

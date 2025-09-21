@@ -270,8 +270,8 @@
 
                 <div class="row row-2">
                   <div>
-                    <label class="label" for="c_expYears">Experience</label>
-                    <select id="c_expYears" name="c_expYears" class="input">
+                    <label class="label" for="c_expYears">Experience *</label>
+                    <select id="c_expYears" name="c_expYears" class="input" required>
                       <option value="">Select experience level</option>
                       <option>Less than 1 year</option>
                       <option>1-3 years</option>
@@ -283,8 +283,8 @@
                   </div>
 
                   <div>
-                    <label class="label" for="c_availability">Availability</label>
-                    <select id="c_availability" name="c_availability" class="input">
+                    <label class="label" for="c_availability">Availability *</label>
+                    <select id="c_availability" name="c_availability" class="input" required>
                       <option value="">Select availability</option>
                       <option>Full-time</option>
                       <option>Part-time</option>
@@ -301,23 +301,63 @@
 
                 <div class="row row-2">
                   <div>
-                    <label class="label" for="c_areas">Areas covered / localities</label>
-                    <input id="c_areas" name="c_areas" class="input" placeholder="e.g., Whitefield, Indiranagar, Koramangala" autocomplete="address-line1" />
+                    <label class="label" for="c_areas">Areas covered / localities *</label>
+                    <input id="c_areas" name="c_areas" class="input" placeholder="e.g., Whitefield, Indiranagar, Koramangala" autocomplete="address-line1" required />
                   </div>
 
-                  <div>
-                    <label class="label" for="c_teamSize">Team size</label>
-                    <select id="c_teamSize" name="c_teamSize" class="input">
-                      <option value="">Select team size</option>
-                      <option>Solo (just me)</option>
-                      <option>2-3 people</option>
-                      <option>4-6 people</option>
-                      <option>7-10 people</option>
-                      <option>10+ people</option>
-                    </select>
-                  </div>
-
+                <div>
+                  <label class="label" for="c_teamSize">Team size *</label>
+                  <select id="c_teamSize" name="c_teamSize" class="input" required>
+                    <option value="">Select team size</option>
+                    <option>Solo (just me)</option>
+                    <option>2-3 people</option>
+                    <option>4-6 people</option>
+                    <option>7-10 people</option>
+                    <option>10+ people</option>
+                  </select>
                 </div>
+
+              </div>
+
+              <!-- References Section -->
+              <div class="section-header">
+                <h3>References</h3>
+                <p>Please provide 2 references from recent clients</p>
+              </div>
+
+              <div class="row row-2">
+                <div>
+                  <label class="label" for="c_ref1_name">Reference 1 - Name</label>
+                  <input id="c_ref1_name" name="c_ref1_name" class="input" placeholder="Client name" />
+                </div>
+
+                <div>
+                  <label class="label" for="c_ref1_phone">Reference 1 - Phone</label>
+                  <input id="c_ref1_phone" name="c_ref1_phone" class="input" placeholder="10-digit number" />
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="c_ref1_work">Reference 1 - Work Done</label>
+                <textarea id="c_ref1_work" name="c_ref1_work" class="input" rows="2" placeholder="Brief description of work completed (e.g., Kitchen renovation, Bathroom tiling, etc.)"></textarea>
+              </div>
+
+              <div class="row row-2">
+                <div>
+                  <label class="label" for="c_ref2_name">Reference 2 - Name</label>
+                  <input id="c_ref2_name" name="c_ref2_name" class="input" placeholder="Client name" />
+                </div>
+
+                <div>
+                  <label class="label" for="c_ref2_phone">Reference 2 - Phone</label>
+                  <input id="c_ref2_phone" name="c_ref2_phone" class="input" placeholder="10-digit number" />
+                </div>
+              </div>
+
+              <div>
+                <label class="label" for="c_ref2_work">Reference 2 - Work Done</label>
+                <textarea id="c_ref2_work" name="c_ref2_work" class="input" rows="2" placeholder="Brief description of work completed (e.g., Kitchen renovation, Bathroom tiling, etc.)"></textarea>
+              </div>
 
                 <div class="row row-2">
                   <div>
@@ -375,7 +415,7 @@
                 </div>
 
 
-                <div style="display:flex; align-items:center; gap:12px;">
+                <div style="display:flex; justify-content:center; align-items:center; gap:12px;">
                   <button id="c_submit" type="submit" class="btn primary">Submit</button>
                   <div id="c_error" class="error"></div>
 
@@ -487,6 +527,44 @@
                     <input id="s_categoriesOtherInput" name="s_categoriesOtherInput" class="input" placeholder="Enter categories separated by commas (e.g., Custom Furniture, Specialty Tools, Imported Materials)" />
                   </div>
 
+                </div>
+
+
+                <div>
+                  <div class="muted" style="margin-bottom: 8px;">Search and select items, then specify brands/models for each</div>
+
+                  <div>
+                    <label class="label" for="s_items_search">Items you supply *</label>
+                    <input id="s_items_search" type="text" class="input" placeholder="Type to search items (e.g., cement, tiles, doors)" autocomplete="off" />
+                    <div id="s_items_dropdown" class="items-dropdown hidden" style="position: absolute; background: white; border: 1px solid #ddd; border-radius: 4px; max-height: 200px; overflow-y: auto; z-index: 1000; width: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                      <!-- Search results will be populated here -->
+                    </div>
+                    <div class="muted" style="margin-top: 4px;">Start typing to search and select items</div>
+                    <div class="field-error" id="s_items_error"></div>
+                  </div>
+
+                  <!-- Selected items display -->
+                  <div id="s_selected_items" class="selected-items" style="margin-top: 12px; min-height: 40px;">
+                    <!-- Selected items will be displayed as chips here -->
+                  </div>
+
+                  <div id="s_itemsOther" class="hidden" style="margin-top: 8px;">
+                    <label class="label" for="s_itemsOtherInput">Please specify other items *</label>
+                    <input id="s_itemsOtherInput" name="s_itemsOtherInput" class="input" placeholder="Enter items separated by commas (e.g., Custom Doors, Premium Tiles, Imported Hardware)" />
+                  </div>
+
+                  <!-- Dynamic brand inputs for selected items -->
+                  <div id="s_itemBrands" class="hidden" style="margin-top: 16px;">
+                    <div class="label">Specify brands/models for selected items</div>
+                    <div id="s_brandInputs"></div>
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <label class="label" for="s_additionalItems">Additional items (optional)</label>
+                  <textarea id="s_additionalItems" name="s_additionalItems" class="input" rows="3" placeholder="List any other items, brands, or specific products you supply that weren't covered above"></textarea>
                 </div>
 
 
@@ -609,7 +687,7 @@
                 </div>
 
 
-                <div style="display:flex; align-items:center; gap:12px;">
+                <div style="display:flex; justify-content:center; align-items:center; gap:12px;">
                   <button id="s_submit" type="submit" class="btn primary">Submit</button>
                   <div id="s_error" class="error"></div>
 
@@ -788,9 +866,11 @@
     </div>
   </div>
 
+  <script src="../env-config.js"></script>
+  <script src="../rate-limiter.js"></script>
   <script src="../supabase.min.js"></script>
   <script src="../supabase-config.js"></script>
-  <script src="../script.js"></script>
+    <script src="../script.js?v=20"></script>
   <script>
     // Handle hash navigation to scroll to specific forms
     window.addEventListener('load', function() {

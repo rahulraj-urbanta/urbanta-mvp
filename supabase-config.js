@@ -1,8 +1,8 @@
 // Supabase Configuration for Urbanta
 const SUPABASE_CONFIG = {
-  // Replace these with your actual Supabase project credentials
-  url: 'https://ehrwdtzyisrfheamigrr.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVocndkdHp5aXNyZmhlYW1pZ3JyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc3NDcyMTMsImV4cCI6MjA3MzMyMzIxM30.TWWD8baDpisClSvKaTZrCCor8hsIwA4DJccQm76aQcI',
+  // Use environment variables if available, fallback to hardcoded values
+  url: (typeof window !== 'undefined' && window.ENV_CONFIG?.SUPABASE_URL) || 'https://ehrwdtzyisrfheamigrr.supabase.co',
+  anonKey: (typeof window !== 'undefined' && window.ENV_CONFIG?.SUPABASE_ANON_KEY) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVocndkdHp5aXNyZmhlYW1pZ3JyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc3NDcyMTMsImV4cCI6MjA3MzMyMzIxM30.TWWD8baDpisClSvKaTZrCCor8hsIwA4DJccQm76aQcI',
   
   // Database table names
   tables: {
@@ -61,6 +61,14 @@ async function submitCustomerToSupabase(formData) {
   console.log('submitCustomerToSupabase called with:', formData);
   console.log('Demo mode:', SUPABASE_CONFIG.demoMode);
   
+  // Check rate limiting
+  if (typeof window !== 'undefined' && window.rateLimiter) {
+    const rateCheck = window.rateLimiter.canSubmit('customer');
+    if (!rateCheck.allowed) {
+      throw new Error(rateCheck.message);
+    }
+  }
+  
   // Demo mode - simulate successful submission
   if (SUPABASE_CONFIG.demoMode) {
     console.log('Demo mode: Customer data would be submitted:', formData);
@@ -113,11 +121,19 @@ async function submitCustomerToSupabase(formData) {
   }
 
   console.log('Customer data inserted successfully');
-  return data;
+  return true;
 }
 
 // Submit contractor form data to Supabase
 async function submitContractorToSupabase(formData) {
+  // Check rate limiting
+  if (typeof window !== 'undefined' && window.rateLimiter) {
+    const rateCheck = window.rateLimiter.canSubmit('contractor');
+    if (!rateCheck.allowed) {
+      throw new Error(rateCheck.message);
+    }
+  }
+  
   // Demo mode - simulate successful submission
   if (SUPABASE_CONFIG.demoMode) {
     console.log('Demo mode: Contractor data would be submitted:', formData);
@@ -150,6 +166,12 @@ async function submitContractorToSupabase(formData) {
     referral_code: formData.referralCode || null,
     referred_by: formData.referredBy || null,
     notes: formData.notes || null,
+    ref1_name: formData.ref1Name || null,
+    ref1_phone: formData.ref1Phone || null,
+    ref1_work: formData.ref1Work || null,
+    ref2_name: formData.ref2Name || null,
+    ref2_phone: formData.ref2Phone || null,
+    ref2_work: formData.ref2Work || null,
     created_at: new Date().toISOString(),
     status: 'new'
   };
@@ -162,11 +184,20 @@ async function submitContractorToSupabase(formData) {
     throw new Error(`Database error: ${error.message}`);
   }
 
-  return data;
+  console.log('Contractor data inserted successfully');
+  return true;
 }
 
 // Submit supplier form data to Supabase
 async function submitSupplierToSupabase(formData) {
+  // Check rate limiting
+  if (typeof window !== 'undefined' && window.rateLimiter) {
+    const rateCheck = window.rateLimiter.canSubmit('supplier');
+    if (!rateCheck.allowed) {
+      throw new Error(rateCheck.message);
+    }
+  }
+  
   // Demo mode - simulate successful submission
   if (SUPABASE_CONFIG.demoMode) {
     console.log('Demo mode: Supplier data would be submitted:', formData);
@@ -189,6 +220,9 @@ async function submitSupplierToSupabase(formData) {
     email: formData.email || null,
     address: formData.address,
     categories: formData.categories,
+    items: formData.items,
+    item_brands: formData.itemBrands || null,
+    additional_items: formData.additionalItems || null,
     delivery_radius_km: formData.deliveryRadiusKm || null,
     gst: formData.gst || null,
     pricelist_url: formData.pricelistUrl || null,
@@ -210,11 +244,22 @@ async function submitSupplierToSupabase(formData) {
     throw new Error(`Database error: ${error.message}`);
   }
 
-  return data;
+  console.log('Supplier data inserted successfully');
+  return true;
 }
 
 // Submit callback request to Supabase
 async function submitCallbackToSupabase(formData) {
+  console.log('submitCallbackToSupabase called with:', formData);
+  
+  // Check rate limiting
+  if (typeof window !== 'undefined' && window.rateLimiter) {
+    const rateCheck = window.rateLimiter.canSubmit('callback');
+    if (!rateCheck.allowed) {
+      throw new Error(rateCheck.message);
+    }
+  }
+  
   // Demo mode - simulate successful submission
   if (SUPABASE_CONFIG.demoMode) {
     console.log('Demo mode: Callback data would be submitted:', formData);
@@ -223,6 +268,7 @@ async function submitCallbackToSupabase(formData) {
   }
 
   if (!supabaseClient) {
+    console.log('Supabase client not initialized, attempting to initialize...');
     if (!initSupabase()) {
       throw new Error('Supabase not initialized. Please include Supabase client library.');
     }
@@ -234,20 +280,23 @@ async function submitCallbackToSupabase(formData) {
     service: formData.callback_service || null,
     message: formData.callback_message || null,
     urgent: formData.callback_urgent || false,
-    callback_type: formData.callback_type || 'customer',
     created_at: new Date().toISOString(),
     status: 'new'
   };
+
+  console.log('Prepared callback data for Supabase:', callbackData);
 
   const { data, error } = await supabaseClient
     .from(SUPABASE_CONFIG.tables.callbacks)
     .insert([callbackData]);
 
   if (error) {
+    console.error('Supabase error:', error);
     throw new Error(`Database error: ${error.message}`);
   }
 
-  return data;
+  console.log('Callback data inserted successfully:', data);
+  return true;
 }
 
 // Export functions for use in other scripts
