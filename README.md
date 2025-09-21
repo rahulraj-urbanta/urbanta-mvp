@@ -152,8 +152,8 @@ Use the production backup: `urbanta_v0.4.10_production_*.zip`
 ## 📞 Support
 
 For technical support or questions:
-- Email: support@urbanta.com
-- WhatsApp: +91 98765 43210
+- Email: info@urbanta.in
+- WhatsApp: +91 82359 41139
 
 ## 📄 License
 
