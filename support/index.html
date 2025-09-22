@@ -11,6 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css" />
+  <script>
+    // Apply theme immediately before page renders
+    (function() {
+      const savedTheme = localStorage.getItem('urbanta_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <header>
@@ -56,11 +63,10 @@
         <button class="mobile-menu-close" id="mobileMenuClose">×</button>
       </div>
       <nav class="mobile-menu-nav">
-        <a href="services/" class="mobile-menu-link">For Customers</a>
         <a href="/" class="mobile-menu-link">Home</a>
-        <a href="professionals/" class="mobile-menu-link">For Professionals</a>
-        <a href="../support/" class="mobile-menu-link">Support</a>
-        <a href="../faq/" class="mobile-menu-link">FAQ</a>
+        <a href="/coming-soon/" class="mobile-menu-link">For Customers</a>
+        <a href="/professionals/" class="mobile-menu-link">For Professionals</a>
+        <a href="/faq/" class="mobile-menu-link">FAQ</a>
       </nav>
     </div>
   </div>
@@ -137,22 +143,21 @@
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
       
-      function applyThemeFromStorage(){
-        const saved = localStorage.getItem("urbanta_theme") || "light";
-        document.documentElement.setAttribute("data-theme", saved);
-        const sw = document.getElementById("themeSwitch");
-        if(sw){ sw.checked = (saved === "light"); }
+      // Theme Toggle Functionality
+      const themeSwitch = document.getElementById("themeSwitch");
+      if (themeSwitch) {
+        // Apply saved theme immediately
+        const savedTheme = localStorage.getItem("urbanta_theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        themeSwitch.checked = (savedTheme === "light");
+        
+        // Add event listener
+        themeSwitch.addEventListener("change", function(e) {
+          const theme = e.target.checked ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          localStorage.setItem("urbanta_theme", theme);
+        });
       }
-      function setTheme(mode){
-        document.documentElement.setAttribute("data-theme", mode);
-        localStorage.setItem("urbanta_theme", mode);
-        const sw = document.getElementById("themeSwitch");
-        if(sw){ sw.checked = (mode === "light"); }
-      }
-      
-      applyThemeFromStorage();
-      const sw = document.getElementById("themeSwitch");
-      if(sw){ sw.addEventListener("change", (e)=> setTheme(e.target.checked ? "light" : "dark")); }
     });
   </script>
   

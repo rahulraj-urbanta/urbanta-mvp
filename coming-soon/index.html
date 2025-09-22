@@ -22,6 +22,13 @@
     
     <link rel="stylesheet" href="../styles.css?v=22">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <script>
+        // Apply theme immediately before page renders
+        (function() {
+            const savedTheme = localStorage.getItem('urbanta_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -62,10 +69,11 @@
                     <button class="mobile-menu-close" id="mobileMenuClose">×</button>
                 </div>
                 <nav class="mobile-menu-nav">
-                    <a href="../services/" class="mobile-menu-link">For Customers</a>
-                    <a href="../professionals/" class="mobile-menu-link">For Professionals</a>
-                    <a href="../support/" class="mobile-menu-link">Support</a>
-                    <a href="../faq/" class="mobile-menu-link">FAQ</a>
+                    <a href="/" class="mobile-menu-link">Home</a>
+                    <a href="/coming-soon/" class="mobile-menu-link">For Customers</a>
+                    <a href="/professionals/" class="mobile-menu-link">For Professionals</a>
+                    <a href="/support/" class="mobile-menu-link">Support</a>
+                    <a href="/faq/" class="mobile-menu-link">FAQ</a>
                 </nav>
             </div>
         </div>
@@ -231,18 +239,20 @@
             }
         });
 
-        function applyThemeFromStorage(){
-            const saved = localStorage.getItem("urbanta_theme") || "light";
-            document.documentElement.setAttribute("data-theme", saved);
-            const sw = document.getElementById("themeSwitch");
-            if(sw){ sw.checked = (saved === "light"); }
-        }
-        
-        function setTheme(mode){
-            document.documentElement.setAttribute("data-theme", mode);
-            localStorage.setItem("urbanta_theme", mode);
-            const sw = document.getElementById("themeSwitch");
-            if(sw){ sw.checked = (mode === "light"); }
+        // Theme Toggle Functionality
+        const themeSwitch = document.getElementById("themeSwitch");
+        if (themeSwitch) {
+            // Apply saved theme immediately
+            const savedTheme = localStorage.getItem("urbanta_theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            themeSwitch.checked = (savedTheme === "light");
+            
+            // Add event listener
+            themeSwitch.addEventListener("change", function(e) {
+                const theme = e.target.checked ? "light" : "dark";
+                document.documentElement.setAttribute("data-theme", theme);
+                localStorage.setItem("urbanta_theme", theme);
+            });
         }
 
         // Email signup functionality
